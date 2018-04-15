@@ -6,6 +6,9 @@
       <change beforePath="$PROJECT_DIR$/src/client/Client.js" afterPath="$PROJECT_DIR$/src/client/Client.js" />
       <change beforePath="$PROJECT_DIR$/src/client/Client.js.map" afterPath="$PROJECT_DIR$/src/client/Client.js.map" />
       <change beforePath="$PROJECT_DIR$/src/client/Client.ts" afterPath="$PROJECT_DIR$/src/client/Client.ts" />
+      <change beforePath="$PROJECT_DIR$/src/client/ServerComm.js" afterPath="$PROJECT_DIR$/src/client/ServerComm.js" />
+      <change beforePath="$PROJECT_DIR$/src/client/ServerComm.js.map" afterPath="$PROJECT_DIR$/src/client/ServerComm.js.map" />
+      <change beforePath="$PROJECT_DIR$/src/client/ServerComm.ts" afterPath="$PROJECT_DIR$/src/client/ServerComm.ts" />
       <change beforePath="$PROJECT_DIR$/src/db/WiredTiger.turtle" afterPath="$PROJECT_DIR$/src/db/WiredTiger.turtle" />
       <change beforePath="$PROJECT_DIR$/src/db/WiredTiger.wt" afterPath="$PROJECT_DIR$/src/db/WiredTiger.wt" />
       <change beforePath="$PROJECT_DIR$/src/db/diagnostic.data/metrics.2018-04-11T09-15-17Z-00000" afterPath="$PROJECT_DIR$/src/db/diagnostic.data/metrics.2018-04-11T09-15-17Z-00000" />
@@ -14,9 +17,6 @@
       <change beforePath="$PROJECT_DIR$/src/db/mongo.log" afterPath="$PROJECT_DIR$/src/db/mongo.log" />
       <change beforePath="$PROJECT_DIR$/src/db/mongod.lock" afterPath="$PROJECT_DIR$/src/db/mongod.lock" />
       <change beforePath="$PROJECT_DIR$/src/db/sizeStorer.wt" afterPath="$PROJECT_DIR$/src/db/sizeStorer.wt" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server.js" afterPath="$PROJECT_DIR$/src/server/Server.js" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server.js.map" afterPath="$PROJECT_DIR$/src/server/Server.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server.ts" afterPath="$PROJECT_DIR$/src/server/Server.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/src/server/Server.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="20" column="50" lean-forward="true" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="79" />
+              <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="79" />
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
                 <element signature="e#1388#1560#0" expanded="true" />
@@ -87,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/src/client/Client.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="16" column="98" lean-forward="false" selection-start-line="16" selection-start-column="98" selection-end-line="16" selection-end-column="98" />
+              <caret line="16" column="120" lean-forward="false" selection-start-line="16" selection-start-column="120" selection-end-line="16" selection-end-column="120" />
               <folding />
             </state>
           </provider>
@@ -96,13 +96,12 @@
       <file leaf-file-name="ServerComm.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/ServerComm.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="14" column="94" lean-forward="false" selection-start-line="14" selection-start-column="94" selection-end-line="14" selection-end-column="94" />
+            <state relative-caret-position="510">
+              <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding>
                 <element signature="n#!!block;n#constructor#0;n#ServerComm#0" expanded="true" />
-                <element signature="n#!!block;n#requestMyLists#0;n#ServerComm#0" expanded="true" />
-                <element signature="e#2455#2727#0" expanded="true" />
-                <element signature="e#2562#2716#0" expanded="true" />
+                <element signature="e#2384#2656#0" expanded="true" />
+                <element signature="e#2491#2645#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -166,7 +165,6 @@
         <option value="$PROJECT_DIR$/node_modules/spiders.captain/src/GSP.js" />
         <option value="$PROJECT_DIR$/src/main.ts" />
         <option value="$PROJECT_DIR$/src/data/PubSub.ts" />
-        <option value="$PROJECT_DIR$/src/client/ServerComm.ts" />
         <option value="$PROJECT_DIR$/src/client/client.html" />
         <option value="$PROJECT_DIR$/src/client/Home.ts" />
         <option value="$PROJECT_DIR$/src/data/APs.ts" />
@@ -174,6 +172,7 @@
         <option value="$PROJECT_DIR$/src/db/DBConf.conf" />
         <option value="$PROJECT_DIR$/src/server/DBActor.ts" />
         <option value="$PROJECT_DIR$/src/server/Server.ts" />
+        <option value="$PROJECT_DIR$/src/client/ServerComm.ts" />
         <option value="$PROJECT_DIR$/src/client/Client.ts" />
       </list>
     </option>
@@ -323,7 +322,7 @@
       <workItem from="1523545861223" duration="1000" />
       <workItem from="1523546171603" duration="6327000" />
       <workItem from="1523602354978" duration="12122000" />
-      <workItem from="1523691092073" duration="6412000" />
+      <workItem from="1523691092073" duration="6668000" />
     </task>
     <task id="LOCAL-00001" summary="Added express to packages">
       <created>1523793386390</created>
@@ -339,11 +338,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523793978463</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added express to packages">
+      <created>1523795356337</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1523795356337</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74168000" />
+    <option name="totallyTimeSpent" value="74424000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
@@ -862,19 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/ServerComm.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="94" lean-forward="false" selection-start-line="14" selection-start-column="94" selection-end-line="14" selection-end-column="94" />
-          <folding>
-            <element signature="n#!!block;n#constructor#0;n#ServerComm#0" expanded="true" />
-            <element signature="n#!!block;n#requestMyLists#0;n#ServerComm#0" expanded="true" />
-            <element signature="e#2455#2727#0" expanded="true" />
-            <element signature="e#2562#2716#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/Home.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1230">
@@ -908,9 +901,9 @@
         <state relative-caret-position="390">
           <caret line="29" column="59" lean-forward="false" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
           <folding>
-            <element signature="n#!!block;n#addUser#0;n#DBActor#0" expanded="true" />
-            <element signature="e#2056#2519#0" expanded="true" />
-            <element signature="e#2302#2508#0" expanded="true" />
+            <element signature="n#!!block;n#addUser#0;n#DBActor#0" expanded="false" />
+            <element signature="e#2056#2519#0" expanded="false" />
+            <element signature="e#2302#2508#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -926,7 +919,7 @@
     <entry file="file://$PROJECT_DIR$/src/server/Server.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="20" column="50" lean-forward="true" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="79" />
+          <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="79" />
           <folding>
             <element signature="e#0#55#0" expanded="true" />
             <element signature="e#1388#1560#0" expanded="true" />
@@ -944,10 +937,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/ServerComm.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#constructor#0;n#ServerComm#0" expanded="true" />
+            <element signature="e#2384#2656#0" expanded="true" />
+            <element signature="e#2491#2645#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/Client.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="16" column="98" lean-forward="false" selection-start-line="16" selection-start-column="98" selection-end-line="16" selection-end-column="98" />
+          <caret line="16" column="120" lean-forward="false" selection-start-line="16" selection-start-column="120" selection-end-line="16" selection-end-column="120" />
           <folding />
         </state>
       </provider>

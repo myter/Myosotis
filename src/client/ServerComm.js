@@ -1,10 +1,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const PubSub_1 = require("../data/PubSub");
 class ServerComm {
-    constructor(psClient, topicConstructor, server) {
+    constructor(psClient, topicConstructor) {
         this.psClient = psClient;
         this.psTopics = new PubSub_1.PubSubTopics(topicConstructor);
-        this.server = server;
     }
     //////////////////////////////////////
     // User Management                  //
@@ -55,7 +54,6 @@ class ServerComm {
                 }
             });
         });
-        //return this.server.getListsFor(this.myToken,this.userName)
     }
 }
 exports.ServerComm = ServerComm;

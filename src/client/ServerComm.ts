@@ -6,16 +6,14 @@ import {
 } from "../data/PubSub";
 
 export class ServerComm{
-    server      : FarRef<Server>
     psClient    : PSClient
     psTopics    : PubSubTopics
     userName    : string
     myToken
 
-    constructor(psClient : PSClient,topicConstructor : {new(val : string) : PubSubTag},server){
+    constructor(psClient : PSClient,topicConstructor : {new(val : string) : PubSubTag}){
         this.psClient = psClient
         this.psTopics = new PubSubTopics(topicConstructor)
-        this.server   = server
     }
 
     //////////////////////////////////////
@@ -71,7 +69,6 @@ export class ServerComm{
                 }
             })
         })
-        //return this.server.getListsFor(this.myToken,this.userName)
     }
 
 }
