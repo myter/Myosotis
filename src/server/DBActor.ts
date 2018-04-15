@@ -27,7 +27,7 @@ export class DBActor extends Actor{
     init(){
         let mongoose            = require('mongoose')
         //TODO needs to be obfuscated before pushing to public git
-        mongoose.connect('mongodb://app:app@localhost/test')
+        mongoose.connect('mongodb://app:app@localhost:27018/test')
         this.db                 = mongoose.connection
         this.db.on('error',console.error.bind(console, 'connection error:'))
         this.db.on('open',()=>{

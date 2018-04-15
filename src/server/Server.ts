@@ -16,9 +16,9 @@ export class Server extends CAPplication {
     boughList : BoughtList
 
     constructor(port : number,pathToHtml : string,pathToClientJS : string){
-        super("localhost",8000)
+        super()
         this.libs.setupPSServer()
-        this.psClient   = this.libs.setupPSClient("localhost",8000)
+        this.psClient   = this.libs.setupPSClient()
         this.psTopics   = new PubSubTopics(this.libs.PubSubTag)
         this.userLists  = new Map()
         this.libs.serveApp(pathToHtml,pathToClientJS,"bundle.js",port)

@@ -45863,7 +45863,7 @@ class MyoClient extends spiders_captain_1.CAPplication {
     constructor() {
         super();
         //this.server         = new ServerComm(this.libs.buffRemote("127.0.0.1",8000))
-        this.server = new ServerComm_1.ServerComm(this.libs.setupPSClient("localhost", 8000), this.libs.PubSubTag, this.libs.buffRemote("127.0.0.1", 8000));
+        this.server = new ServerComm_1.ServerComm(this.libs.setupPSClient(), this.libs.PubSubTag, this.libs.buffRemote("127.0.0.1", 8000));
         this.navs = $("#nav_all");
         this.login = new Login_1.LoginScreen(this);
         this.home = new Home_1.HomeScreen(this);
