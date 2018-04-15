@@ -1,0 +1,14 @@
+{
+  "name": "Myosotis",
+  "version": "0.0.1",
+  "dependencies": {
+    "@types/jquery": "^3.3.1",
+    "@types/jsonwebtoken": "^7.2.5",
+    "@types/mongoose": "^5.0.2",
+    "jsonwebtoken": "^8.1.1",
+    "mongoose": "^5.0.6",
+    "socket.io": "^2.1.0",
+    "spiders.captain": "^0.3.9",
+    "uws": "^9.14.0"
+  }
+}

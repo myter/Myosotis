@@ -1,0 +1,460 @@
+2018-03-27T08:47:56.605+0200 I CONTROL  [initandlisten] MongoDB starting : pid=24978 port=27017 dbpath=./ 64-bit host=fmyter
+2018-03-27T08:47:56.605+0200 I CONTROL  [initandlisten] db version v3.6.2
+2018-03-27T08:47:56.605+0200 I CONTROL  [initandlisten] git version: 489d177dbd0f0420a8ca04d39fd78d0a2c539420
+2018-03-27T08:47:56.605+0200 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2n  7 Dec 2017
+2018-03-27T08:47:56.605+0200 I CONTROL  [initandlisten] allocator: system
+2018-03-27T08:47:56.605+0200 I CONTROL  [initandlisten] modules: none
+2018-03-27T08:47:56.605+0200 I CONTROL  [initandlisten] build environment:
+2018-03-27T08:47:56.605+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2018-03-27T08:47:56.605+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-03-27T08:47:56.605+0200 I CONTROL  [initandlisten] options: { config: "DBConf.conf", net: { port: 27017 }, security: { authorization: "enabled" }, storage: { dbPath: "./" }, systemLog: { destination: "file", path: "./mongo.log" } }
+2018-03-27T08:47:56.606+0200 I -        [initandlisten] Detected data files in ./ created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-03-27T08:47:56.606+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=7680M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-03-27T08:47:56.812+0200 I STORAGE  [initandlisten] WiredTiger message [1522133276:812428][24978:0x7fff9ad66340], txn-recover: Main recovery loop: starting at 2/20224
+2018-03-27T08:47:56.907+0200 I STORAGE  [initandlisten] WiredTiger message [1522133276:907300][24978:0x7fff9ad66340], txn-recover: Recovering log 2 through 3
+2018-03-27T08:47:56.970+0200 I STORAGE  [initandlisten] WiredTiger message [1522133276:970494][24978:0x7fff9ad66340], txn-recover: Recovering log 3 through 3
+2018-03-27T08:47:57.085+0200 I CONTROL  [initandlisten] 
+2018-03-27T08:47:57.085+0200 I CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.
+2018-03-27T08:47:57.085+0200 I CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server. 
+2018-03-27T08:47:57.085+0200 I CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP 
+2018-03-27T08:47:57.085+0200 I CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to
+2018-03-27T08:47:57.085+0200 I CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the
+2018-03-27T08:47:57.085+0200 I CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.
+2018-03-27T08:47:57.085+0200 I CONTROL  [initandlisten] 
+2018-03-27T08:47:57.096+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory './diagnostic.data'
+2018-03-27T08:47:57.097+0200 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-03-27T08:48:02.893+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57180 #1 (1 connection now open)
+2018-03-27T08:48:02.899+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:57180 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T08:48:02.932+0200 I ACCESS   [conn1] Successfully authenticated as principal app on test
+2018-03-27T08:48:44.592+0200 I NETWORK  [conn1] end connection 127.0.0.1:57180 (0 connections now open)
+2018-03-27T08:48:48.696+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57220 #2 (1 connection now open)
+2018-03-27T08:48:48.701+0200 I NETWORK  [conn2] received client metadata from 127.0.0.1:57220 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T08:48:48.736+0200 I ACCESS   [conn2] Successfully authenticated as principal app on test
+2018-03-27T08:50:50.662+0200 I NETWORK  [conn2] end connection 127.0.0.1:57220 (0 connections now open)
+2018-03-27T08:50:54.791+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57411 #3 (1 connection now open)
+2018-03-27T08:50:54.796+0200 I NETWORK  [conn3] received client metadata from 127.0.0.1:57411 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T08:50:54.828+0200 I ACCESS   [conn3] Successfully authenticated as principal app on test
+2018-03-27T08:51:18.586+0200 I NETWORK  [conn3] end connection 127.0.0.1:57411 (0 connections now open)
+2018-03-27T08:51:23.039+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57438 #4 (1 connection now open)
+2018-03-27T08:51:23.046+0200 I NETWORK  [conn4] received client metadata from 127.0.0.1:57438 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T08:51:23.087+0200 I ACCESS   [conn4] Successfully authenticated as principal app on test
+2018-03-27T08:51:53.402+0200 I NETWORK  [conn4] end connection 127.0.0.1:57438 (0 connections now open)
+2018-03-27T08:51:57.640+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57483 #5 (1 connection now open)
+2018-03-27T08:51:57.645+0200 I NETWORK  [conn5] received client metadata from 127.0.0.1:57483 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T08:51:57.676+0200 I ACCESS   [conn5] Successfully authenticated as principal app on test
+2018-03-27T08:52:15.838+0200 I NETWORK  [conn5] end connection 127.0.0.1:57483 (0 connections now open)
+2018-03-27T08:52:19.544+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57510 #6 (1 connection now open)
+2018-03-27T08:52:19.549+0200 I NETWORK  [conn6] received client metadata from 127.0.0.1:57510 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T08:52:19.581+0200 I ACCESS   [conn6] Successfully authenticated as principal app on test
+2018-03-27T08:52:45.140+0200 I NETWORK  [conn6] end connection 127.0.0.1:57510 (0 connections now open)
+2018-03-27T08:52:48.867+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57533 #7 (1 connection now open)
+2018-03-27T08:52:48.871+0200 I NETWORK  [conn7] received client metadata from 127.0.0.1:57533 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T08:52:48.904+0200 I ACCESS   [conn7] Successfully authenticated as principal app on test
+2018-03-27T08:54:20.319+0200 I NETWORK  [conn7] end connection 127.0.0.1:57533 (0 connections now open)
+2018-03-27T08:54:25.160+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57737 #8 (1 connection now open)
+2018-03-27T08:54:25.165+0200 I NETWORK  [conn8] received client metadata from 127.0.0.1:57737 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T08:54:25.195+0200 I ACCESS   [conn8] Successfully authenticated as principal app on test
+2018-03-27T08:57:48.816+0200 I NETWORK  [conn8] end connection 127.0.0.1:57737 (0 connections now open)
+2018-03-27T08:57:53.787+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57892 #9 (1 connection now open)
+2018-03-27T08:57:53.791+0200 I NETWORK  [conn9] received client metadata from 127.0.0.1:57892 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T08:57:53.822+0200 I ACCESS   [conn9] Successfully authenticated as principal app on test
+2018-03-27T08:58:42.385+0200 I NETWORK  [conn9] end connection 127.0.0.1:57892 (0 connections now open)
+2018-03-27T08:58:47.095+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57926 #10 (1 connection now open)
+2018-03-27T08:58:47.099+0200 I NETWORK  [conn10] received client metadata from 127.0.0.1:57926 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T08:58:47.130+0200 I ACCESS   [conn10] Successfully authenticated as principal app on test
+2018-03-27T09:01:33.740+0200 I NETWORK  [conn10] end connection 127.0.0.1:57926 (0 connections now open)
+2018-03-27T09:01:38.552+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58185 #11 (1 connection now open)
+2018-03-27T09:01:38.558+0200 I NETWORK  [conn11] received client metadata from 127.0.0.1:58185 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:01:38.588+0200 I ACCESS   [conn11] Successfully authenticated as principal app on test
+2018-03-27T09:02:15.019+0200 I NETWORK  [conn11] end connection 127.0.0.1:58185 (0 connections now open)
+2018-03-27T09:02:24.077+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58207 #12 (1 connection now open)
+2018-03-27T09:02:24.129+0200 I NETWORK  [conn12] received client metadata from 127.0.0.1:58207 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:02:24.158+0200 I ACCESS   [conn12] Successfully authenticated as principal app on test
+2018-03-27T09:04:16.188+0200 I NETWORK  [conn12] end connection 127.0.0.1:58207 (0 connections now open)
+2018-03-27T09:04:21.045+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58389 #13 (1 connection now open)
+2018-03-27T09:04:21.051+0200 I NETWORK  [conn13] received client metadata from 127.0.0.1:58389 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:04:21.083+0200 I ACCESS   [conn13] Successfully authenticated as principal app on test
+2018-03-27T09:05:37.118+0200 I NETWORK  [conn13] end connection 127.0.0.1:58389 (0 connections now open)
+2018-03-27T09:06:20.971+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58432 #14 (1 connection now open)
+2018-03-27T09:06:20.975+0200 I NETWORK  [conn14] received client metadata from 127.0.0.1:58432 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:06:21.004+0200 I ACCESS   [conn14] Successfully authenticated as principal app on test
+2018-03-27T09:06:48.012+0200 I NETWORK  [conn14] end connection 127.0.0.1:58432 (0 connections now open)
+2018-03-27T09:06:51.969+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58469 #15 (1 connection now open)
+2018-03-27T09:06:51.973+0200 I NETWORK  [conn15] received client metadata from 127.0.0.1:58469 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:06:52.004+0200 I ACCESS   [conn15] Successfully authenticated as principal app on test
+2018-03-27T09:16:04.644+0200 I NETWORK  [conn15] end connection 127.0.0.1:58469 (0 connections now open)
+2018-03-27T09:16:09.700+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58725 #16 (1 connection now open)
+2018-03-27T09:16:09.707+0200 I NETWORK  [conn16] received client metadata from 127.0.0.1:58725 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:16:09.737+0200 I ACCESS   [conn16] Successfully authenticated as principal app on test
+2018-03-27T09:16:51.829+0200 I NETWORK  [conn16] end connection 127.0.0.1:58725 (0 connections now open)
+2018-03-27T09:16:55.831+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58775 #17 (1 connection now open)
+2018-03-27T09:16:55.841+0200 I NETWORK  [conn17] received client metadata from 127.0.0.1:58775 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:16:55.871+0200 I ACCESS   [conn17] Successfully authenticated as principal app on test
+2018-03-27T09:20:28.524+0200 I NETWORK  [conn17] end connection 127.0.0.1:58775 (0 connections now open)
+2018-03-27T09:20:32.446+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58832 #18 (1 connection now open)
+2018-03-27T09:20:32.453+0200 I NETWORK  [conn18] received client metadata from 127.0.0.1:58832 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:20:32.480+0200 I ACCESS   [conn18] Successfully authenticated as principal app on test
+2018-03-27T09:21:14.609+0200 I NETWORK  [conn18] end connection 127.0.0.1:58832 (0 connections now open)
+2018-03-27T09:21:21.902+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58881 #19 (1 connection now open)
+2018-03-27T09:21:21.911+0200 I NETWORK  [conn19] received client metadata from 127.0.0.1:58881 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:21:21.943+0200 I ACCESS   [conn19] Successfully authenticated as principal app on test
+2018-03-27T09:22:21.215+0200 I NETWORK  [conn19] end connection 127.0.0.1:58881 (0 connections now open)
+2018-03-27T09:22:24.847+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58920 #20 (1 connection now open)
+2018-03-27T09:22:24.854+0200 I NETWORK  [conn20] received client metadata from 127.0.0.1:58920 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:22:24.879+0200 I ACCESS   [conn20] Successfully authenticated as principal app on test
+2018-03-27T09:25:05.740+0200 I NETWORK  [conn20] end connection 127.0.0.1:58920 (0 connections now open)
+2018-03-27T09:25:09.688+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59073 #21 (1 connection now open)
+2018-03-27T09:25:09.695+0200 I NETWORK  [conn21] received client metadata from 127.0.0.1:59073 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:25:09.719+0200 I ACCESS   [conn21] Successfully authenticated as principal app on test
+2018-03-27T09:25:28.824+0200 I NETWORK  [conn21] end connection 127.0.0.1:59073 (0 connections now open)
+2018-03-27T09:25:32.978+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59116 #22 (1 connection now open)
+2018-03-27T09:25:32.984+0200 I NETWORK  [conn22] received client metadata from 127.0.0.1:59116 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:25:33.011+0200 I ACCESS   [conn22] Successfully authenticated as principal app on test
+2018-03-27T09:26:32.228+0200 I NETWORK  [conn22] end connection 127.0.0.1:59116 (0 connections now open)
+2018-03-27T09:26:36.080+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59161 #23 (1 connection now open)
+2018-03-27T09:26:36.087+0200 I NETWORK  [conn23] received client metadata from 127.0.0.1:59161 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:26:36.113+0200 I ACCESS   [conn23] Successfully authenticated as principal app on test
+2018-03-27T09:27:08.041+0200 I NETWORK  [conn23] end connection 127.0.0.1:59161 (0 connections now open)
+2018-03-27T09:27:11.955+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59196 #24 (1 connection now open)
+2018-03-27T09:27:11.962+0200 I NETWORK  [conn24] received client metadata from 127.0.0.1:59196 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-27T09:27:11.989+0200 I ACCESS   [conn24] Successfully authenticated as principal app on test
+2018-03-27T15:21:39.253+0200 I NETWORK  [conn24] end connection 127.0.0.1:59196 (0 connections now open)
+2018-03-28T09:21:55.811+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55700 #25 (1 connection now open)
+2018-03-28T09:21:55.828+0200 I NETWORK  [conn25] received client metadata from 127.0.0.1:55700 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T09:21:55.857+0200 I ACCESS   [conn25] Successfully authenticated as principal app on test
+2018-03-28T09:26:35.715+0200 I NETWORK  [conn25] end connection 127.0.0.1:55700 (0 connections now open)
+2018-03-28T09:26:39.458+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55770 #26 (1 connection now open)
+2018-03-28T09:26:39.464+0200 I NETWORK  [conn26] received client metadata from 127.0.0.1:55770 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T09:26:39.489+0200 I ACCESS   [conn26] Successfully authenticated as principal app on test
+2018-03-28T09:27:18.997+0200 I STORAGE  [conn26] createCollection: test.users with generated UUID: e468a6ea-824c-4c64-b025-484617b57fde
+2018-03-28T09:27:53.967+0200 I NETWORK  [conn26] end connection 127.0.0.1:55770 (0 connections now open)
+2018-03-28T09:27:57.336+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55854 #27 (1 connection now open)
+2018-03-28T09:27:57.342+0200 I NETWORK  [conn27] received client metadata from 127.0.0.1:55854 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T09:27:57.367+0200 I ACCESS   [conn27] Successfully authenticated as principal app on test
+2018-03-28T09:28:53.461+0200 I NETWORK  [conn27] end connection 127.0.0.1:55854 (0 connections now open)
+2018-03-28T09:28:57.121+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55894 #28 (1 connection now open)
+2018-03-28T09:28:57.128+0200 I NETWORK  [conn28] received client metadata from 127.0.0.1:55894 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T09:28:57.155+0200 I ACCESS   [conn28] Successfully authenticated as principal app on test
+2018-03-28T09:35:11.624+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:56049 #29 (2 connections now open)
+2018-03-28T09:35:11.625+0200 I NETWORK  [conn29] received client metadata from 127.0.0.1:56049 conn: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.2" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "17.4.0" } }
+2018-03-28T09:35:11.648+0200 I ACCESS   [conn29] Successfully authenticated as principal app on test
+2018-03-28T09:35:11.649+0200 I ACCESS   [conn29] Unauthorized: not authorized on admin to execute command { getLog: "startupWarnings", $db: "admin" }
+2018-03-28T09:35:11.659+0200 I ACCESS   [conn29] Unauthorized: not authorized on admin to execute command { replSetGetStatus: 1.0, forShell: 1.0, $db: "admin" }
+2018-03-28T09:47:26.603+0200 I NETWORK  [conn28] end connection 127.0.0.1:55894 (1 connection now open)
+2018-03-28T09:47:30.588+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:56170 #30 (2 connections now open)
+2018-03-28T09:47:30.595+0200 I NETWORK  [conn30] received client metadata from 127.0.0.1:56170 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T09:47:30.619+0200 I ACCESS   [conn30] Successfully authenticated as principal app on test
+2018-03-28T09:49:10.139+0200 I NETWORK  [conn30] end connection 127.0.0.1:56170 (1 connection now open)
+2018-03-28T09:49:13.477+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:56218 #31 (2 connections now open)
+2018-03-28T09:49:13.484+0200 I NETWORK  [conn31] received client metadata from 127.0.0.1:56218 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T09:49:13.512+0200 I ACCESS   [conn31] Successfully authenticated as principal app on test
+2018-03-28T09:50:32.096+0200 I NETWORK  [conn31] end connection 127.0.0.1:56218 (1 connection now open)
+2018-03-28T09:51:03.553+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:56331 #32 (2 connections now open)
+2018-03-28T09:51:03.559+0200 I NETWORK  [conn32] received client metadata from 127.0.0.1:56331 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T09:51:03.586+0200 I ACCESS   [conn32] Successfully authenticated as principal app on test
+2018-03-28T09:51:53.346+0200 I NETWORK  [conn32] end connection 127.0.0.1:56331 (1 connection now open)
+2018-03-28T10:10:08.189+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57598 #33 (2 connections now open)
+2018-03-28T10:10:08.196+0200 I NETWORK  [conn33] received client metadata from 127.0.0.1:57598 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:10:08.221+0200 I ACCESS   [conn33] Successfully authenticated as principal app on test
+2018-03-28T10:12:26.241+0200 I NETWORK  [conn33] end connection 127.0.0.1:57598 (1 connection now open)
+2018-03-28T10:12:33.138+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57818 #34 (2 connections now open)
+2018-03-28T10:12:33.145+0200 I NETWORK  [conn34] received client metadata from 127.0.0.1:57818 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:12:33.170+0200 I ACCESS   [conn34] Successfully authenticated as principal app on test
+2018-03-28T10:13:15.557+0200 I NETWORK  [conn34] end connection 127.0.0.1:57818 (1 connection now open)
+2018-03-28T10:13:19.430+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57924 #35 (2 connections now open)
+2018-03-28T10:13:19.436+0200 I NETWORK  [conn35] received client metadata from 127.0.0.1:57924 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:13:19.461+0200 I ACCESS   [conn35] Successfully authenticated as principal app on test
+2018-03-28T10:14:31.491+0200 I NETWORK  [conn35] end connection 127.0.0.1:57924 (1 connection now open)
+2018-03-28T10:14:35.300+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58019 #36 (2 connections now open)
+2018-03-28T10:14:35.307+0200 I NETWORK  [conn36] received client metadata from 127.0.0.1:58019 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:14:35.332+0200 I ACCESS   [conn36] Successfully authenticated as principal app on test
+2018-03-28T10:15:29.825+0200 I NETWORK  [conn36] end connection 127.0.0.1:58019 (1 connection now open)
+2018-03-28T10:15:33.856+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58079 #37 (2 connections now open)
+2018-03-28T10:15:33.862+0200 I NETWORK  [conn37] received client metadata from 127.0.0.1:58079 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:15:33.888+0200 I ACCESS   [conn37] Successfully authenticated as principal app on test
+2018-03-28T10:15:44.051+0200 I NETWORK  [conn37] end connection 127.0.0.1:58079 (1 connection now open)
+2018-03-28T10:15:49.397+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58106 #38 (2 connections now open)
+2018-03-28T10:15:49.410+0200 I NETWORK  [conn38] received client metadata from 127.0.0.1:58106 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:15:49.456+0200 I ACCESS   [conn38] Successfully authenticated as principal app on test
+2018-03-28T10:45:39.858+0200 I NETWORK  [conn38] end connection 127.0.0.1:58106 (1 connection now open)
+2018-03-28T10:45:46.887+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58412 #39 (2 connections now open)
+2018-03-28T10:45:46.894+0200 I NETWORK  [conn39] received client metadata from 127.0.0.1:58412 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:45:46.920+0200 I ACCESS   [conn39] Successfully authenticated as principal app on test
+2018-03-28T10:46:25.930+0200 I NETWORK  [conn39] end connection 127.0.0.1:58412 (1 connection now open)
+2018-03-28T10:46:29.377+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58456 #40 (2 connections now open)
+2018-03-28T10:46:29.384+0200 I NETWORK  [conn40] received client metadata from 127.0.0.1:58456 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:46:29.409+0200 I ACCESS   [conn40] Successfully authenticated as principal app on test
+2018-03-28T10:49:02.193+0200 I NETWORK  [conn40] end connection 127.0.0.1:58456 (1 connection now open)
+2018-03-28T10:49:06.041+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58568 #41 (2 connections now open)
+2018-03-28T10:49:06.048+0200 I NETWORK  [conn41] received client metadata from 127.0.0.1:58568 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:49:06.074+0200 I ACCESS   [conn41] Successfully authenticated as principal app on test
+2018-03-28T10:52:12.911+0200 I NETWORK  [conn41] end connection 127.0.0.1:58568 (1 connection now open)
+2018-03-28T10:52:16.640+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58697 #42 (2 connections now open)
+2018-03-28T10:52:16.646+0200 I NETWORK  [conn42] received client metadata from 127.0.0.1:58697 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:52:16.670+0200 I ACCESS   [conn42] Successfully authenticated as principal app on test
+2018-03-28T10:53:03.186+0200 I NETWORK  [conn42] end connection 127.0.0.1:58697 (1 connection now open)
+2018-03-28T10:53:06.646+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58735 #43 (2 connections now open)
+2018-03-28T10:53:06.653+0200 I NETWORK  [conn43] received client metadata from 127.0.0.1:58735 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:53:06.682+0200 I ACCESS   [conn43] Successfully authenticated as principal app on test
+2018-03-28T10:56:02.785+0200 I NETWORK  [conn43] end connection 127.0.0.1:58735 (1 connection now open)
+2018-03-28T10:56:06.460+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58892 #44 (2 connections now open)
+2018-03-28T10:56:06.467+0200 I NETWORK  [conn44] received client metadata from 127.0.0.1:58892 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:56:06.491+0200 I ACCESS   [conn44] Successfully authenticated as principal app on test
+2018-03-28T10:56:25.718+0200 I NETWORK  [conn44] end connection 127.0.0.1:58892 (1 connection now open)
+2018-03-28T10:56:31.100+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58925 #45 (2 connections now open)
+2018-03-28T10:56:31.107+0200 I NETWORK  [conn45] received client metadata from 127.0.0.1:58925 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:56:31.131+0200 I ACCESS   [conn45] Successfully authenticated as principal app on test
+2018-03-28T10:58:07.892+0200 I NETWORK  [conn45] end connection 127.0.0.1:58925 (1 connection now open)
+2018-03-28T10:58:12.104+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59047 #46 (2 connections now open)
+2018-03-28T10:58:12.112+0200 I NETWORK  [conn46] received client metadata from 127.0.0.1:59047 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:58:12.136+0200 I ACCESS   [conn46] Successfully authenticated as principal app on test
+2018-03-28T10:58:21.926+0200 I NETWORK  [conn46] end connection 127.0.0.1:59047 (1 connection now open)
+2018-03-28T10:58:27.296+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59082 #47 (2 connections now open)
+2018-03-28T10:58:27.305+0200 I NETWORK  [conn47] received client metadata from 127.0.0.1:59082 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T10:58:27.333+0200 I ACCESS   [conn47] Successfully authenticated as principal app on test
+2018-03-28T11:03:19.396+0200 I NETWORK  [conn47] end connection 127.0.0.1:59082 (1 connection now open)
+2018-03-28T11:03:23.123+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59199 #48 (2 connections now open)
+2018-03-28T11:03:23.129+0200 I NETWORK  [conn48] received client metadata from 127.0.0.1:59199 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:03:23.153+0200 I ACCESS   [conn48] Successfully authenticated as principal app on test
+2018-03-28T11:05:10.268+0200 I NETWORK  [conn48] end connection 127.0.0.1:59199 (1 connection now open)
+2018-03-28T11:05:13.689+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59268 #49 (2 connections now open)
+2018-03-28T11:05:13.696+0200 I NETWORK  [conn49] received client metadata from 127.0.0.1:59268 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:05:13.721+0200 I ACCESS   [conn49] Successfully authenticated as principal app on test
+2018-03-28T11:06:17.902+0200 I NETWORK  [conn49] end connection 127.0.0.1:59268 (1 connection now open)
+2018-03-28T11:06:21.375+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59312 #50 (2 connections now open)
+2018-03-28T11:06:21.381+0200 I NETWORK  [conn50] received client metadata from 127.0.0.1:59312 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:06:21.406+0200 I ACCESS   [conn50] Successfully authenticated as principal app on test
+2018-03-28T11:07:43.500+0200 I NETWORK  [conn50] end connection 127.0.0.1:59312 (1 connection now open)
+2018-03-28T11:07:46.923+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59354 #51 (2 connections now open)
+2018-03-28T11:07:46.929+0200 I NETWORK  [conn51] received client metadata from 127.0.0.1:59354 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:07:46.954+0200 I ACCESS   [conn51] Successfully authenticated as principal app on test
+2018-03-28T11:11:16.785+0200 I NETWORK  [conn51] end connection 127.0.0.1:59354 (1 connection now open)
+2018-03-28T11:11:20.499+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59515 #52 (2 connections now open)
+2018-03-28T11:11:20.507+0200 I NETWORK  [conn52] received client metadata from 127.0.0.1:59515 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:11:20.530+0200 I ACCESS   [conn52] Successfully authenticated as principal app on test
+2018-03-28T11:12:06.286+0200 I NETWORK  [conn52] end connection 127.0.0.1:59515 (1 connection now open)
+2018-03-28T11:12:09.655+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59557 #53 (2 connections now open)
+2018-03-28T11:12:09.662+0200 I NETWORK  [conn53] received client metadata from 127.0.0.1:59557 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:12:09.688+0200 I ACCESS   [conn53] Successfully authenticated as principal app on test
+2018-03-28T11:12:33.528+0200 I NETWORK  [conn53] end connection 127.0.0.1:59557 (1 connection now open)
+2018-03-28T11:12:36.908+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59594 #54 (2 connections now open)
+2018-03-28T11:12:36.915+0200 I NETWORK  [conn54] received client metadata from 127.0.0.1:59594 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:12:36.940+0200 I ACCESS   [conn54] Successfully authenticated as principal app on test
+2018-03-28T11:12:52.440+0200 I NETWORK  [conn54] end connection 127.0.0.1:59594 (1 connection now open)
+2018-03-28T11:12:58.005+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59633 #55 (2 connections now open)
+2018-03-28T11:12:58.015+0200 I NETWORK  [conn55] received client metadata from 127.0.0.1:59633 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:12:58.047+0200 I ACCESS   [conn55] Successfully authenticated as principal app on test
+2018-03-28T11:13:26.063+0200 I NETWORK  [conn55] end connection 127.0.0.1:59633 (1 connection now open)
+2018-03-28T11:13:29.470+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59671 #56 (2 connections now open)
+2018-03-28T11:13:29.477+0200 I NETWORK  [conn56] received client metadata from 127.0.0.1:59671 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:13:29.500+0200 I ACCESS   [conn56] Successfully authenticated as principal app on test
+2018-03-28T11:14:49.996+0200 I NETWORK  [conn56] end connection 127.0.0.1:59671 (1 connection now open)
+2018-03-28T11:14:53.374+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59724 #57 (2 connections now open)
+2018-03-28T11:14:53.381+0200 I NETWORK  [conn57] received client metadata from 127.0.0.1:59724 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:14:53.402+0200 I ACCESS   [conn57] Successfully authenticated as principal app on test
+2018-03-28T11:15:40.832+0200 I NETWORK  [conn57] end connection 127.0.0.1:59724 (1 connection now open)
+2018-03-28T11:15:44.583+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59850 #58 (2 connections now open)
+2018-03-28T11:15:44.589+0200 I NETWORK  [conn58] received client metadata from 127.0.0.1:59850 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:15:44.611+0200 I ACCESS   [conn58] Successfully authenticated as principal app on test
+2018-03-28T11:16:04.469+0200 I NETWORK  [conn58] end connection 127.0.0.1:59850 (1 connection now open)
+2018-03-28T11:16:07.858+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:59892 #59 (2 connections now open)
+2018-03-28T11:16:07.865+0200 I NETWORK  [conn59] received client metadata from 127.0.0.1:59892 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:16:07.888+0200 I ACCESS   [conn59] Successfully authenticated as principal app on test
+2018-03-28T11:19:24.757+0200 I NETWORK  [conn59] end connection 127.0.0.1:59892 (1 connection now open)
+2018-03-28T11:19:28.455+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60114 #60 (2 connections now open)
+2018-03-28T11:19:28.462+0200 I NETWORK  [conn60] received client metadata from 127.0.0.1:60114 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:19:28.486+0200 I ACCESS   [conn60] Successfully authenticated as principal app on test
+2018-03-28T11:21:05.375+0200 I NETWORK  [conn60] end connection 127.0.0.1:60114 (1 connection now open)
+2018-03-28T11:21:09.169+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60243 #61 (2 connections now open)
+2018-03-28T11:21:09.175+0200 I NETWORK  [conn61] received client metadata from 127.0.0.1:60243 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:21:09.199+0200 I ACCESS   [conn61] Successfully authenticated as principal app on test
+2018-03-28T11:21:53.190+0200 I NETWORK  [conn61] end connection 127.0.0.1:60243 (1 connection now open)
+2018-03-28T11:21:56.613+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60288 #62 (2 connections now open)
+2018-03-28T11:21:56.619+0200 I NETWORK  [conn62] received client metadata from 127.0.0.1:60288 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:21:56.643+0200 I ACCESS   [conn62] Successfully authenticated as principal app on test
+2018-03-28T11:22:21.422+0200 I NETWORK  [conn62] end connection 127.0.0.1:60288 (1 connection now open)
+2018-03-28T11:22:24.862+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60329 #63 (2 connections now open)
+2018-03-28T11:22:24.868+0200 I NETWORK  [conn63] received client metadata from 127.0.0.1:60329 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:22:24.893+0200 I ACCESS   [conn63] Successfully authenticated as principal app on test
+2018-03-28T11:22:45.108+0200 I NETWORK  [conn63] end connection 127.0.0.1:60329 (1 connection now open)
+2018-03-28T11:22:48.554+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60368 #64 (2 connections now open)
+2018-03-28T11:22:48.560+0200 I NETWORK  [conn64] received client metadata from 127.0.0.1:60368 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:22:48.583+0200 I ACCESS   [conn64] Successfully authenticated as principal app on test
+2018-03-28T11:23:08.443+0200 I NETWORK  [conn64] end connection 127.0.0.1:60368 (1 connection now open)
+2018-03-28T11:23:13.415+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60404 #65 (2 connections now open)
+2018-03-28T11:23:13.422+0200 I NETWORK  [conn65] received client metadata from 127.0.0.1:60404 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:23:13.449+0200 I ACCESS   [conn65] Successfully authenticated as principal app on test
+2018-03-28T11:23:38.127+0200 I NETWORK  [conn65] end connection 127.0.0.1:60404 (1 connection now open)
+2018-03-28T11:23:41.531+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60444 #66 (2 connections now open)
+2018-03-28T11:23:41.541+0200 I NETWORK  [conn66] received client metadata from 127.0.0.1:60444 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:23:41.569+0200 I ACCESS   [conn66] Successfully authenticated as principal app on test
+2018-03-28T11:24:11.115+0200 I NETWORK  [conn66] end connection 127.0.0.1:60444 (1 connection now open)
+2018-03-28T11:24:31.061+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60550 #67 (2 connections now open)
+2018-03-28T11:24:31.065+0200 I NETWORK  [conn67] received client metadata from 127.0.0.1:60550 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:24:31.095+0200 I ACCESS   [conn67] Successfully authenticated as principal app on test
+2018-03-28T11:24:41.982+0200 I NETWORK  [conn67] end connection 127.0.0.1:60550 (1 connection now open)
+2018-03-28T11:24:46.719+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60591 #68 (2 connections now open)
+2018-03-28T11:24:46.726+0200 I NETWORK  [conn68] received client metadata from 127.0.0.1:60591 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:24:46.751+0200 I ACCESS   [conn68] Successfully authenticated as principal app on test
+2018-03-28T11:27:22.392+0200 I NETWORK  [conn68] end connection 127.0.0.1:60591 (1 connection now open)
+2018-03-28T11:27:26.146+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60756 #69 (2 connections now open)
+2018-03-28T11:27:26.152+0200 I NETWORK  [conn69] received client metadata from 127.0.0.1:60756 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:27:26.176+0200 I ACCESS   [conn69] Successfully authenticated as principal app on test
+2018-03-28T11:28:38.049+0200 I NETWORK  [conn69] end connection 127.0.0.1:60756 (1 connection now open)
+2018-03-28T11:28:41.786+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60880 #70 (2 connections now open)
+2018-03-28T11:28:41.792+0200 I NETWORK  [conn70] received client metadata from 127.0.0.1:60880 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:28:41.816+0200 I ACCESS   [conn70] Successfully authenticated as principal app on test
+2018-03-28T11:29:24.230+0200 I NETWORK  [conn70] end connection 127.0.0.1:60880 (1 connection now open)
+2018-03-28T11:29:27.822+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60917 #71 (2 connections now open)
+2018-03-28T11:29:27.829+0200 I NETWORK  [conn71] received client metadata from 127.0.0.1:60917 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:29:27.851+0200 I ACCESS   [conn71] Successfully authenticated as principal app on test
+2018-03-28T11:29:41.140+0200 I NETWORK  [conn71] end connection 127.0.0.1:60917 (1 connection now open)
+2018-03-28T11:29:46.145+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60955 #72 (2 connections now open)
+2018-03-28T11:29:46.152+0200 I NETWORK  [conn72] received client metadata from 127.0.0.1:60955 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:29:46.177+0200 I ACCESS   [conn72] Successfully authenticated as principal app on test
+2018-03-28T11:30:07.493+0200 I NETWORK  [conn72] end connection 127.0.0.1:60955 (1 connection now open)
+2018-03-28T11:30:12.447+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60991 #73 (2 connections now open)
+2018-03-28T11:30:12.454+0200 I NETWORK  [conn73] received client metadata from 127.0.0.1:60991 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:30:12.478+0200 I ACCESS   [conn73] Successfully authenticated as principal app on test
+2018-03-28T11:30:53.222+0200 I NETWORK  [conn73] end connection 127.0.0.1:60991 (1 connection now open)
+2018-03-28T11:30:56.638+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61030 #74 (2 connections now open)
+2018-03-28T11:30:56.644+0200 I NETWORK  [conn74] received client metadata from 127.0.0.1:61030 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:30:56.667+0200 I ACCESS   [conn74] Successfully authenticated as principal app on test
+2018-03-28T11:31:06.540+0200 I NETWORK  [conn74] end connection 127.0.0.1:61030 (1 connection now open)
+2018-03-28T11:31:11.114+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61067 #75 (2 connections now open)
+2018-03-28T11:31:11.118+0200 I NETWORK  [conn75] received client metadata from 127.0.0.1:61067 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:31:11.143+0200 I ACCESS   [conn75] Successfully authenticated as principal app on test
+2018-03-28T11:31:46.678+0200 I NETWORK  [conn75] end connection 127.0.0.1:61067 (1 connection now open)
+2018-03-28T11:31:50.412+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61149 #76 (2 connections now open)
+2018-03-28T11:31:50.418+0200 I NETWORK  [conn76] received client metadata from 127.0.0.1:61149 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:31:50.443+0200 I ACCESS   [conn76] Successfully authenticated as principal app on test
+2018-03-28T11:32:32.119+0200 I NETWORK  [conn76] end connection 127.0.0.1:61149 (1 connection now open)
+2018-03-28T11:32:35.491+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61191 #77 (2 connections now open)
+2018-03-28T11:32:35.497+0200 I NETWORK  [conn77] received client metadata from 127.0.0.1:61191 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:32:35.521+0200 I ACCESS   [conn77] Successfully authenticated as principal app on test
+2018-03-28T11:35:59.323+0200 I NETWORK  [conn77] end connection 127.0.0.1:61191 (1 connection now open)
+2018-03-28T11:36:03.081+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61518 #78 (2 connections now open)
+2018-03-28T11:36:03.088+0200 I NETWORK  [conn78] received client metadata from 127.0.0.1:61518 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:36:03.113+0200 I ACCESS   [conn78] Successfully authenticated as principal app on test
+2018-03-28T11:36:20.957+0200 I NETWORK  [conn78] end connection 127.0.0.1:61518 (1 connection now open)
+2018-03-28T11:36:25.998+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61556 #79 (2 connections now open)
+2018-03-28T11:36:26.005+0200 I NETWORK  [conn79] received client metadata from 127.0.0.1:61556 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T11:36:26.032+0200 I ACCESS   [conn79] Successfully authenticated as principal app on test
+2018-03-28T11:37:22.824+0200 I NETWORK  [conn79] end connection 127.0.0.1:61556 (1 connection now open)
+2018-03-28T15:07:39.697+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:50761 #80 (2 connections now open)
+2018-03-28T15:07:39.701+0200 I NETWORK  [conn80] received client metadata from 127.0.0.1:50761 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-28T15:07:39.729+0200 I ACCESS   [conn80] Successfully authenticated as principal app on test
+2018-03-28T20:35:01.484+0200 I NETWORK  [conn80] end connection 127.0.0.1:50761 (1 connection now open)
+2018-03-29T09:54:03.390+0200 I NETWORK  [conn29] end connection 127.0.0.1:56049 (0 connections now open)
+2018-03-29T09:55:58.833+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:54370 #81 (1 connection now open)
+2018-03-29T09:55:58.848+0200 I NETWORK  [conn81] received client metadata from 127.0.0.1:54370 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T09:55:58.872+0200 I ACCESS   [conn81] Successfully authenticated as principal app on test
+2018-03-29T09:56:51.540+0200 I NETWORK  [conn81] end connection 127.0.0.1:54370 (0 connections now open)
+2018-03-29T10:26:03.552+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57238 #82 (1 connection now open)
+2018-03-29T10:26:03.558+0200 I NETWORK  [conn82] received client metadata from 127.0.0.1:57238 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T10:26:03.585+0200 I ACCESS   [conn82] Successfully authenticated as principal app on test
+2018-03-29T10:35:19.727+0200 I NETWORK  [conn82] end connection 127.0.0.1:57238 (0 connections now open)
+2018-03-29T10:35:23.703+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57601 #83 (1 connection now open)
+2018-03-29T10:35:23.710+0200 I NETWORK  [conn83] received client metadata from 127.0.0.1:57601 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T10:35:23.737+0200 I ACCESS   [conn83] Successfully authenticated as principal app on test
+2018-03-29T10:35:54.942+0200 I NETWORK  [conn83] end connection 127.0.0.1:57601 (0 connections now open)
+2018-03-29T10:35:58.408+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57643 #84 (1 connection now open)
+2018-03-29T10:35:58.414+0200 I NETWORK  [conn84] received client metadata from 127.0.0.1:57643 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T10:35:58.438+0200 I ACCESS   [conn84] Successfully authenticated as principal app on test
+2018-03-29T10:36:34.161+0200 I NETWORK  [conn84] end connection 127.0.0.1:57643 (0 connections now open)
+2018-03-29T10:36:37.569+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57680 #85 (1 connection now open)
+2018-03-29T10:36:37.576+0200 I NETWORK  [conn85] received client metadata from 127.0.0.1:57680 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T10:36:37.601+0200 I ACCESS   [conn85] Successfully authenticated as principal app on test
+2018-03-29T10:37:10.994+0200 I NETWORK  [conn85] end connection 127.0.0.1:57680 (0 connections now open)
+2018-03-29T10:37:15.008+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57725 #86 (1 connection now open)
+2018-03-29T10:37:15.012+0200 I NETWORK  [conn86] received client metadata from 127.0.0.1:57725 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T10:37:15.037+0200 I ACCESS   [conn86] Successfully authenticated as principal app on test
+2018-03-29T10:39:40.201+0200 I NETWORK  [conn86] end connection 127.0.0.1:57725 (0 connections now open)
+2018-03-29T10:39:43.996+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57882 #87 (1 connection now open)
+2018-03-29T10:39:44.002+0200 I NETWORK  [conn87] received client metadata from 127.0.0.1:57882 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T10:39:44.027+0200 I ACCESS   [conn87] Successfully authenticated as principal app on test
+2018-03-29T10:40:37.267+0200 I NETWORK  [conn87] end connection 127.0.0.1:57882 (0 connections now open)
+2018-03-29T10:40:40.690+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57924 #88 (1 connection now open)
+2018-03-29T10:40:40.698+0200 I NETWORK  [conn88] received client metadata from 127.0.0.1:57924 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T10:40:40.724+0200 I ACCESS   [conn88] Successfully authenticated as principal app on test
+2018-03-29T10:48:24.428+0200 I NETWORK  [conn88] end connection 127.0.0.1:57924 (0 connections now open)
+2018-03-29T10:48:28.162+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58042 #89 (1 connection now open)
+2018-03-29T10:48:28.169+0200 I NETWORK  [conn89] received client metadata from 127.0.0.1:58042 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T10:48:28.192+0200 I ACCESS   [conn89] Successfully authenticated as principal app on test
+2018-03-29T10:50:37.824+0200 I NETWORK  [conn89] end connection 127.0.0.1:58042 (0 connections now open)
+2018-03-29T10:50:41.326+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58090 #90 (1 connection now open)
+2018-03-29T10:50:41.333+0200 I NETWORK  [conn90] received client metadata from 127.0.0.1:58090 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T10:50:41.359+0200 I ACCESS   [conn90] Successfully authenticated as principal app on test
+2018-03-29T10:55:50.602+0200 I NETWORK  [conn90] end connection 127.0.0.1:58090 (0 connections now open)
+2018-03-29T10:55:54.372+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58243 #91 (1 connection now open)
+2018-03-29T10:55:54.378+0200 I NETWORK  [conn91] received client metadata from 127.0.0.1:58243 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T10:55:54.404+0200 I ACCESS   [conn91] Successfully authenticated as principal app on test
+2018-03-29T11:00:20.183+0200 I NETWORK  [conn91] end connection 127.0.0.1:58243 (0 connections now open)
+2018-03-29T11:00:37.266+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58386 #92 (1 connection now open)
+2018-03-29T11:00:37.273+0200 I NETWORK  [conn92] received client metadata from 127.0.0.1:58386 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T11:00:37.298+0200 I ACCESS   [conn92] Successfully authenticated as principal app on test
+2018-03-29T11:01:11.220+0200 I NETWORK  [conn92] end connection 127.0.0.1:58386 (0 connections now open)
+2018-03-29T11:01:14.582+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58433 #93 (1 connection now open)
+2018-03-29T11:01:14.588+0200 I NETWORK  [conn93] received client metadata from 127.0.0.1:58433 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T11:01:14.611+0200 I ACCESS   [conn93] Successfully authenticated as principal app on test
+2018-03-29T14:01:46.022+0200 I NETWORK  [conn93] end connection 127.0.0.1:58433 (0 connections now open)
+2018-03-29T14:07:20.977+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61418 #94 (1 connection now open)
+2018-03-29T14:07:20.991+0200 I NETWORK  [conn94] received client metadata from 127.0.0.1:61418 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T14:07:21.015+0200 I ACCESS   [conn94] Successfully authenticated as principal app on test
+2018-03-29T14:08:54.683+0200 I NETWORK  [conn94] end connection 127.0.0.1:61418 (0 connections now open)
+2018-03-29T14:08:58.674+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61618 #95 (1 connection now open)
+2018-03-29T14:08:58.681+0200 I NETWORK  [conn95] received client metadata from 127.0.0.1:61618 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T14:08:58.710+0200 I ACCESS   [conn95] Successfully authenticated as principal app on test
+2018-03-29T14:09:12.045+0200 I NETWORK  [conn95] end connection 127.0.0.1:61618 (0 connections now open)
+2018-03-29T14:09:17.140+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61642 #96 (1 connection now open)
+2018-03-29T14:09:17.145+0200 I NETWORK  [conn96] received client metadata from 127.0.0.1:61642 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T14:09:17.175+0200 I ACCESS   [conn96] Successfully authenticated as principal app on test
+2018-03-29T14:11:28.398+0200 I NETWORK  [conn96] end connection 127.0.0.1:61642 (0 connections now open)
+2018-03-29T14:11:31.739+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61692 #97 (1 connection now open)
+2018-03-29T14:11:31.746+0200 I NETWORK  [conn97] received client metadata from 127.0.0.1:61692 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-29T14:11:31.770+0200 I ACCESS   [conn97] Successfully authenticated as principal app on test
+2018-03-29T14:14:15.897+0200 I NETWORK  [conn97] end connection 127.0.0.1:61692 (0 connections now open)
+2018-03-30T09:18:12.840+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:52081 #98 (1 connection now open)
+2018-03-30T09:18:12.846+0200 I NETWORK  [conn98] received client metadata from 127.0.0.1:52081 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-30T09:18:12.875+0200 I ACCESS   [conn98] Successfully authenticated as principal app on test
+2018-03-30T09:18:16.664+0200 I NETWORK  [conn98] end connection 127.0.0.1:52081 (0 connections now open)
+2018-03-30T09:18:17.479+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:52124 #99 (1 connection now open)
+2018-03-30T09:18:17.486+0200 I NETWORK  [conn99] received client metadata from 127.0.0.1:52124 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-30T09:18:17.520+0200 I ACCESS   [conn99] Successfully authenticated as principal app on test
+2018-03-30T09:18:20.902+0200 I NETWORK  [conn99] end connection 127.0.0.1:52124 (0 connections now open)
+2018-03-30T09:20:40.149+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55169 #100 (1 connection now open)
+2018-03-30T09:20:40.156+0200 I NETWORK  [conn100] received client metadata from 127.0.0.1:55169 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-30T09:20:40.187+0200 I ACCESS   [conn100] Successfully authenticated as principal app on test
+2018-03-30T09:21:25.578+0200 I NETWORK  [conn100] end connection 127.0.0.1:55169 (0 connections now open)
+2018-03-30T09:21:29.267+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55228 #101 (1 connection now open)
+2018-03-30T09:21:29.274+0200 I NETWORK  [conn101] received client metadata from 127.0.0.1:55228 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-30T09:21:29.298+0200 I ACCESS   [conn101] Successfully authenticated as principal app on test
+2018-03-30T09:22:23.292+0200 I NETWORK  [conn101] end connection 127.0.0.1:55228 (0 connections now open)
+2018-03-30T09:22:27.069+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55264 #102 (1 connection now open)
+2018-03-30T09:22:27.076+0200 I NETWORK  [conn102] received client metadata from 127.0.0.1:55264 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-30T09:22:27.102+0200 I ACCESS   [conn102] Successfully authenticated as principal app on test
+2018-03-30T09:31:52.163+0200 I NETWORK  [conn102] end connection 127.0.0.1:55264 (0 connections now open)
+2018-03-30T09:31:56.377+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55363 #103 (1 connection now open)
+2018-03-30T09:31:56.381+0200 I NETWORK  [conn103] received client metadata from 127.0.0.1:55363 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-30T09:31:56.408+0200 I ACCESS   [conn103] Successfully authenticated as principal app on test
+2018-03-30T09:34:12.670+0200 I NETWORK  [conn103] end connection 127.0.0.1:55363 (0 connections now open)
+2018-03-30T09:34:17.224+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55416 #104 (1 connection now open)
+2018-03-30T09:34:17.230+0200 I NETWORK  [conn104] received client metadata from 127.0.0.1:55416 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-30T09:34:17.255+0200 I ACCESS   [conn104] Successfully authenticated as principal app on test
+2018-03-30T09:34:20.072+0200 I NETWORK  [conn104] end connection 127.0.0.1:55416 (0 connections now open)
+2018-03-30T09:34:24.856+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55437 #105 (1 connection now open)
+2018-03-30T09:34:24.865+0200 I NETWORK  [conn105] received client metadata from 127.0.0.1:55437 conn: { driver: { name: "nodejs", version: "3.0.4" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.4" }
+2018-03-30T09:34:24.905+0200 I ACCESS   [conn105] Successfully authenticated as principal app on test
+2018-03-30T09:36:35.288+0200 I NETWORK  [conn105] end connection 127.0.0.1:55437 (0 connections now open)
+2018-04-04T09:03:29.666+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55990 #106 (1 connection now open)
+2018-04-04T09:03:29.678+0200 I NETWORK  [conn106] received client metadata from 127.0.0.1:55990 conn: { driver: { name: "nodejs", version: "3.0.2" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v7.2.1, LE, mongodb-core: 3.0.2" }
+2018-04-04T09:03:29.701+0200 I ACCESS   [conn106] SCRAM-SHA-1 authentication failed for app on test from client 127.0.0.1:55990 ; AuthenticationFailed: SCRAM-SHA-1 authentication failed, storedKey mismatch
+2018-04-04T09:03:29.702+0200 I NETWORK  [conn106] end connection 127.0.0.1:55990 (0 connections now open)
+2018-04-04T09:03:36.401+0200 I CONTROL  [signalProcessingThread] got signal 2 (Interrupt: 2), will terminate after current cmd ends
+2018-04-04T09:03:36.402+0200 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2018-04-04T09:03:36.402+0200 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2018-04-04T09:03:36.405+0200 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+2018-04-04T09:03:36.407+0200 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+2018-04-04T09:03:36.663+0200 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2018-04-04T09:03:36.664+0200 I CONTROL  [signalProcessingThread] now exiting
+2018-04-04T09:03:36.664+0200 I CONTROL  [signalProcessingThread] shutting down with code:0

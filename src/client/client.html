@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        .input-field input[type=date]:focus + label,
+        .input-field input[type=text]:focus + label,
+        .input-field input[type=email]:focus + label,
+        .input-field input[type=password]:focus + label {
+            color: #e91e63;
+        }
+
+        .input-field input[type=date]:focus,
+        .input-field input[type=text]:focus,
+        .input-field input[type=email]:focus,
+        .input-field input[type=password]:focus {
+            border-bottom: 2px solid #e91e63;
+            box-shadow: none;
+        }
+
+        .nav-wrapper{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .half-out {
+            position: relative;
+            float: right;
+            margin-right: -68px;
+            margin-top: -53px;
+        }
+
+    </style>
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper teal">
+        <a class="brand-logo center">Myosotis</a>
+        <ul id="nav_all" class="left" style="display: none">
+        </ul>
+        <a class="btn-floating btn-large halfway-fab waves-effect waves-light brown darken-1" id="btn_home_new_list">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
+</nav>
+
+<div class="section"></div>
+<main>
+
+    <!--
+        LOGIN SCREEN
+    -->
+    <div id="screen_login">
+        <center>
+            <div class="section"></div>
+
+            <h5 class="brown-text">Please, login into your account</h5>
+            <div class="section"></div>
+
+            <div class="container">
+                <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+                    <div class="col s12">
+                        <div class='row'>
+                            <div class='col s12'>
+                            </div>
+                        </div>
+
+                        <div class='row'>
+                            <div class='input-field col s12' >
+                                <input  type='text' name='username' id='inp_login_username' autofocus/>
+                                <label for='username'>Enter your username</label>
+                            </div>
+                        </div>
+
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input  type='password' name='password' id='inp_login_password' />
+                                <label for='password'>Enter your password</label>
+                            </div>
+                            <!--<label style='float: right;'>
+                                <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
+                            </label>-->
+                        </div>
+
+                        <br />
+                        <center>
+                            <div class='row'>
+                                <button id='btn_login_ok' class='col s5 btn btn-large waves-effect brown darken-1'>Login</button>
+                                <span class="col s2"></span>
+                                <button id='btn_login_new' class='col s5 btn btn-large waves-effect brown darken-1'>New User</button>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </center>
+
+        <div class="section"></div>
+        <div class="section"></div>
+    </div>
+
+    <!--
+        Home SCREEN
+    -->
+    <div id="screen_home" style="display: none">
+        <center>
+            <div class="section"></div>
+            <h5 class="brown-text" id="list_content_header"></h5>
+            <div class="section"></div>
+            <div class="container">
+                <div class="z-depth-1 teal row" style="display: none; padding: 32px 48px 0px 48px; border: 1px solid #EEE;" id="list_inspector">
+                    <a class="btn-floating half-out waves-effect waves-light modal-trigger brown darken-1" id="btn_home_new_item"><i class="material-icons">add</i></a>
+                    <div class="col s12">
+                        <div class='row'>
+                            <div class='col s12'>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col s12">
+                                <ul class="collection" id="coll_home_selected_list">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Structure -->
+                <div id="mod_home_new_list" class="modal">
+                    <div class="modal-content">
+                        <h4>New List Configuration</h4>
+                        <input placeholder="list name" id="inp_new_list_name" type="text">
+                    </div>
+                    <div class="modal-footer">
+                        <a class="waves-effect waves-light btn brown darken-1" id="btn_new_list_create">create</a>
+                        <a class="waves-effect waves-light btn red" id="btn_new_list_cancel">cancel</a>
+                    </div>
+                </div>
+
+                <div id="mod_home_new_item" class="modal">
+                    <div class="modal-content">
+                        <h4>New Item Configuration</h4>
+                        <input placeholder="item name" id="inp_new_item_name" type="text">
+                    </div>
+                    <div class="modal-footer">
+                        <a class="waves-effect waves-light btn brown darken-1" id="btn_new_item_create">create</a>
+                        <a class="waves-effect waves-light btn red" id="btn_new_item_cancel">cancel</a>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </div>
+
+</main>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script type="text/javascript" src="./bundle.js"></script>
+</body>
+</html>
