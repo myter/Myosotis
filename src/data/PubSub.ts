@@ -1,5 +1,5 @@
 import {Available, PubSubTag} from "spiders.captain";
-import {BoughtList, UserLists} from "./APs";
+import {BoughtList, UserLists, UserListsC} from "./APs";
 
 export class PubSubTopics {
     topicConstructor
@@ -9,6 +9,10 @@ export class PubSubTopics {
     NewUserRespTopic    : PubSubTag
     GetListsReqTopic    : PubSubTag
     GetListsRespTopic   : PubSubTag
+    GoOfflineReqTopic   : PubSubTag
+    GoOfflineRespTopic  : PubSubTag
+    GoOnlineReqTopic    : PubSubTag
+    GoOnlineRespTopic   : PubSubTag
 
 
     constructor(topicConstructor){
@@ -19,6 +23,10 @@ export class PubSubTopics {
         this.NewUserRespTopic   = new this.topicConstructor("_NEW_USER_RESP_")
         this.GetListsReqTopic   = new this.topicConstructor("_GET_LIST_REQ_")
         this.GetListsRespTopic  = new this.topicConstructor("_GET_LIST_RESP_")
+        this.GoOfflineReqTopic  = new this.topicConstructor("_GO_OFFLINE_REQ_")
+        this.GoOfflineRespTopic = new this.topicConstructor("_GO_OFFLINE_RESP_")
+        this.GoOnlineReqTopic   = new this.topicConstructor("_GO_ONLINE_REQ_")
+        this.GoOnlineRespTopic  = new this.topicConstructor("_GO_ONLINE_RESP_")
     }
 }
 
@@ -37,12 +45,14 @@ export class LoginReply extends Available{
     name
     ok
     token
+    serverType
 
-    constructor(name : string,ok : boolean,token?){
+    constructor(name : string,ok : boolean,token,serverType){
         super()
-        this.name   = name
-        this.ok     = ok
-        this.token  = token
+        this.name       = name
+        this.ok         = ok
+        this.token      = token
+        this.serverType = serverType
     }
 }
 
@@ -89,5 +99,50 @@ export class GetListsResponse extends Available{
         this.userName   = userName
         this.lists      = lists
         this.boughList  = boughtList
+    }
+}
+
+export class GoOfflineRequest extends Available{
+    userName
+    token
+    constructor(userName,token){
+        super()
+        this.userName   = userName
+        this.token      = token
+    }
+}
+
+export class GoOfflineResponse extends Available{
+    userName
+    lists     : UserLists
+
+    constructor(userName : string,lists : UserLists){
+        super()
+        this.userName   = userName
+        this.lists      = lists
+    }
+}
+
+export class GoOnlineRequest extends Available{
+    userName
+    token
+    lists    : UserLists
+
+    constructor(userName : string,token,lists : UserLists){
+        super()
+        this.userName   = userName
+        this.token      = token
+        this.lists      = lists
+    }
+}
+
+export class GoOnlineResponse extends Available{
+    userName
+    lists  : UserListsC
+
+    constructor(userName : string,lists : UserListsC){
+        super()
+        this.userName   = userName
+        this.lists      = lists
     }
 }

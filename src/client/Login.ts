@@ -1,5 +1,7 @@
 import {MyoClient} from "./Client";
 import {MyoScreen} from "./MyoScreen";
+import {HomeScreen} from "./Home";
+import {HomeScreen2} from "./Home2";
 
 export class LoginScreen extends MyoScreen{
     loginButton     : JQuery<HTMLElement>
@@ -23,9 +25,15 @@ export class LoginScreen extends MyoScreen{
     installListeners(){
         let loginPressed = ()=>{
             let [userName,password] = this.getData()
-            this.client.server.requestLogin(userName,password).then((ok)=>{
+            this.client.server.requestLogin(userName,password).then(([ok,serverType])=>{
                 if(ok){
                     this.client.showNavs()
+                    if(serverType == "1"){
+                        this.client.setHomeScreen(HomeScreen)
+                    }
+                    else{
+                        this.client.setHomeScreen(HomeScreen2)
+                    }
                     this.client.changeScreen()
                 }
                 else{

@@ -1,5 +1,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const MyoScreen_1 = require("./MyoScreen");
+const Home_1 = require("./Home");
+const Home2_1 = require("./Home2");
 class LoginScreen extends MyoScreen_1.MyoScreen {
     constructor(client) {
         super(client, $("#screen_login"));
@@ -15,9 +17,15 @@ class LoginScreen extends MyoScreen_1.MyoScreen {
     installListeners() {
         let loginPressed = () => {
             let [userName, password] = this.getData();
-            this.client.server.requestLogin(userName, password).then((ok) => {
+            this.client.server.requestLogin(userName, password).then(([ok, serverType]) => {
                 if (ok) {
                     this.client.showNavs();
+                    if (serverType == "1") {
+                        this.client.setHomeScreen(Home_1.HomeScreen);
+                    }
+                    else {
+                        this.client.setHomeScreen(Home2_1.HomeScreen2);
+                    }
                     this.client.changeScreen();
                 }
                 else {

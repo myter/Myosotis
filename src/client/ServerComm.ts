@@ -1,9 +1,13 @@
 import {FarRef, PSClient, PubSubTag} from "spiders.captain"
 import {Server} from "../server/Server";
 import {
-    GetListsRequest, GetListsResponse, LoginReply, LoginRequest, NewUserRequest, NewUserResponse,
+    GetListsRequest, GetListsResponse, GoOfflineRequest, GoOfflineResponse, GoOnlineRequest, GoOnlineResponse,
+    LoginReply, LoginRequest,
+    NewUserRequest,
+    NewUserResponse,
     PubSubTopics
 } from "../data/PubSub";
+import {UserLists} from "../data/APs";
 
 export class ServerComm{
     psClient    : PSClient
@@ -27,17 +31,10 @@ export class ServerComm{
             this.psClient.subscribe(this.psTopics.LoginRespTopic).each((response : LoginReply)=>{
                 if(response.name == userName){
                     this.myToken = response.token
-                    resolve(response.token)
+                    resolve([response.token,response.serverType])
                 }
             })
         })
-        /*return this.server.login(userName,password).then((token)=>{
-            if(token){
-                this.myToken    = token
-                this.userName   = userName
-            }
-            return token
-        })*/
     }
 
     requestNewUser(userName : string,password : string){
@@ -50,10 +47,6 @@ export class ServerComm{
                 }
             })
         })
-        /*return this.server.newUser(userName,password).then((token)=>{
-            this.myToken    = token
-            this.userName   = userName
-        })*/
     }
 
     //////////////////////////////////////
@@ -66,6 +59,32 @@ export class ServerComm{
             this.psClient.subscribe(this.psTopics.GetListsRespTopic).each((response : GetListsResponse)=>{
                 if(response.userName == this.userName){
                     resolve([response.lists,response.boughList])
+                }
+            })
+        })
+    }
+
+    //////////////////////////////////////
+    // Connectivity (Myo2)              //
+    //////////////////////////////////////
+
+    requestGoOffline(){
+        this.psClient.publish(new GoOfflineRequest(this.userName,this.myToken),this.psTopics.GoOfflineReqTopic)
+        return new Promise((resolve)=>{
+            this.psClient.subscribe(this.psTopics.GoOfflineRespTopic).each((response : GoOfflineResponse)=>{
+                if(response.userName == this.userName){
+                    resolve(response.lists)
+                }
+            })
+        })
+    }
+
+    requestGoOnline(lists : UserLists){
+        this.psClient.publish(new GoOnlineRequest(this.userName,this.myToken,lists),this.psTopics.GoOnlineReqTopic)
+        return new Promise((resolve)=>{
+            this.psClient.subscribe(this.psTopics.GoOnlineRespTopic).each((response : GoOnlineResponse)=>{
+                if(response.userName == this.userName){
+                    resolve(response.lists)
                 }
             })
         })

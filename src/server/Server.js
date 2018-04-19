@@ -6,9 +6,11 @@ const APs_1 = require("../data/APs");
 const PubSub_1 = require("../data/PubSub");
 class Server extends spiders_captain_1.CAPplication {
     constructor(port, pathToHtml, pathToClientJS) {
-        super("spitter.soft.vub.ac.be", 8000);
+        //super("spitter.soft.vub.ac.be",8000)
+        super();
         this.libs.setupPSServer();
-        this.psClient = this.libs.setupPSClient("spitter.soft.vub.ac.be", 8000);
+        //this.psClient   = this.libs.setupPSClient("spitter.soft.vub.ac.be",8000)
+        this.psClient = this.libs.setupPSClient();
         this.psTopics = new PubSub_1.PubSubTopics(this.libs.PubSubTag);
         this.userLists = new Map();
         this.libs.serveApp(pathToHtml, pathToClientJS, "bundle.js", port);
@@ -53,15 +55,15 @@ class Server extends spiders_captain_1.CAPplication {
                         if (verified) {
                             //TODO refactor before pushing to git
                             let token = jsonwebtoken_1.sign({}, "SOMESECRETTODOREFACTOR");
-                            this.psClient.publish(new PubSub_1.LoginReply(loginRequest.name, verified, token), this.psTopics.LoginRespTopic);
+                            this.psClient.publish(new PubSub_1.LoginReply(loginRequest.name, verified, token, 1), this.psTopics.LoginRespTopic);
                         }
                         else {
-                            this.psClient.publish(new PubSub_1.LoginReply(loginRequest.name, verified), this.psTopics.LoginRespTopic);
+                            this.psClient.publish(new PubSub_1.LoginReply(loginRequest.name, verified, "", 1), this.psTopics.LoginRespTopic);
                         }
                     });
                 }
                 else {
-                    this.psClient.publish(new PubSub_1.LoginReply(loginRequest.name, false), this.psTopics.LoginRespTopic);
+                    this.psClient.publish(new PubSub_1.LoginReply(loginRequest.name, false, "", 1), this.psTopics.LoginRespTopic);
                 }
             });
         });

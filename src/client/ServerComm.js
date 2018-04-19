@@ -15,17 +15,10 @@ class ServerComm {
             this.psClient.subscribe(this.psTopics.LoginRespTopic).each((response) => {
                 if (response.name == userName) {
                     this.myToken = response.token;
-                    resolve(response.token);
+                    resolve([response.token, response.serverType]);
                 }
             });
         });
-        /*return this.server.login(userName,password).then((token)=>{
-            if(token){
-                this.myToken    = token
-                this.userName   = userName
-            }
-            return token
-        })*/
     }
     requestNewUser(userName, password) {
         this.psClient.publish(new PubSub_1.NewUserRequest(userName, password), this.psTopics.NewUserReqTopic);
@@ -37,10 +30,6 @@ class ServerComm {
                 }
             });
         });
-        /*return this.server.newUser(userName,password).then((token)=>{
-            this.myToken    = token
-            this.userName   = userName
-        })*/
     }
     //////////////////////////////////////
     // Lists                            //
@@ -51,6 +40,29 @@ class ServerComm {
             this.psClient.subscribe(this.psTopics.GetListsRespTopic).each((response) => {
                 if (response.userName == this.userName) {
                     resolve([response.lists, response.boughList]);
+                }
+            });
+        });
+    }
+    //////////////////////////////////////
+    // Connectivity (Myo2)              //
+    //////////////////////////////////////
+    requestGoOffline() {
+        this.psClient.publish(new PubSub_1.GoOfflineRequest(this.userName, this.myToken), this.psTopics.GoOfflineReqTopic);
+        return new Promise((resolve) => {
+            this.psClient.subscribe(this.psTopics.GoOfflineRespTopic).each((response) => {
+                if (response.userName == this.userName) {
+                    resolve(response.lists);
+                }
+            });
+        });
+    }
+    requestGoOnline(lists) {
+        this.psClient.publish(new PubSub_1.GoOnlineRequest(this.userName, this.myToken, lists), this.psTopics.GoOnlineReqTopic);
+        return new Promise((resolve) => {
+            this.psClient.subscribe(this.psTopics.GoOnlineRespTopic).each((response) => {
+                if (response.userName == this.userName) {
+                    resolve(response.lists);
                 }
             });
         });

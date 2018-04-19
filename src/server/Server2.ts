@@ -1,16 +1,17 @@
-import {CAPplication, PSClient} from "spiders.captain";
-import {DBActor} from "./DBActor";
-import {sign, verify} from "jsonwebtoken";
-import {BoughtList, GroceryList, UserLists} from "../data/APs";
+import {CAPplication, Consistent, PSClient} from "spiders.captain";
 import {
-    GetListsRequest, GetListsResponse, LoginReply, LoginRequest, NewUserRequest, NewUserResponse,
+    GetListsRequest, GetListsResponse, GoOfflineRequest, GoOfflineResponse, GoOnlineRequest, LoginReply, LoginRequest,
+    NewUserRequest,
+    NewUserResponse,
     PubSubTopics
 } from "../data/PubSub";
+import {BoughtList, GroceryList, GroceryListC, UserLists, UserListsC} from "../data/APs";
+import {sign, verify} from "jsonwebtoken";
+import {DBActor} from "./DBActor";
 
-
-export class Server extends CAPplication {
+export class Server2 extends CAPplication {
     dbActor
-    userLists : Map<string,UserLists>
+    userLists : Map<string,UserListsC>
     psClient  : PSClient
     psTopics  : PubSubTopics
     boughList : BoughtList
@@ -71,15 +72,15 @@ export class Server extends CAPplication {
                         if(verified){
                             //TODO refactor before pushing to git
                             let token = sign({},"SOMESECRETTODOREFACTOR")
-                            this.psClient.publish(new LoginReply(loginRequest.name,verified,token,1),this.psTopics.LoginRespTopic)
+                            this.psClient.publish(new LoginReply(loginRequest.name,verified,token,2),this.psTopics.LoginRespTopic)
                         }
                         else{
-                            this.psClient.publish(new LoginReply(loginRequest.name,verified,"",1),this.psTopics.LoginRespTopic)
+                            this.psClient.publish(new LoginReply(loginRequest.name,verified,"",2),this.psTopics.LoginRespTopic)
                         }
                     })
                 }
                 else{
-                    this.psClient.publish(new LoginReply(loginRequest.name,false,"",1),this.psTopics.LoginRespTopic)
+                    this.psClient.publish(new LoginReply(loginRequest.name,false,"",2),this.psTopics.LoginRespTopic)
                 }
             })
         })
@@ -99,20 +100,41 @@ export class Server extends CAPplication {
         this.psClient.subscribe(this.psTopics.GetListsReqTopic).each((request : GetListsRequest)=>{
             this.checkTokenizedRequest(request.token,()=>{
                 if(this.userLists.has(request.userName)){
-                    this.psClient.publish(new GetListsResponse(request.userName,this.userLists.get(request.userName),this.boughList),this.psTopics.GetListsRespTopic)
+                    this.psClient.publish(new GetListsResponse(request.userName,this.userLists.get(request.userName) as any,this.boughList),this.psTopics.GetListsRespTopic)
                 }
                 else{
-                    let newUserLists = new UserLists(request.userName)
-                    newUserLists.onCommit((lists : UserLists)=>{
-                        console.log("New commit value for list on server !!!")
-                        lists.lists.forEach((list : GroceryList)=>{
-                            console.log(list.listName)
-                        })
-                    })
+                    let newUserLists = new UserListsC(request.userName)
                     this.userLists.set(request.userName,newUserLists)
-                    this.psClient.publish(new GetListsResponse(request.userName,newUserLists,this.boughList),this.psTopics.GetListsRespTopic)
+                    this.psClient.publish(new GetListsResponse(request.userName,newUserLists as any,this.boughList),this.psTopics.GetListsRespTopic)
                 }
             })
+        })
+
+
+        //////////////////////////////////////
+        // Connectivity                     //
+        //////////////////////////////////////
+
+        this.psClient.subscribe(this.psTopics.GoOfflineReqTopic).each((request : GoOfflineRequest)=>{
+            this.checkTokenizedRequest(request.token,()=>{
+                let userLists   = this.userLists.get(request.userName);
+                this.libs.thaw(userLists as any).then((evUserLists : UserLists)=>{
+                    let thaws = evUserLists.lists.map((list)=>{return this.libs.thaw(list as any)})
+                    Promise.all(thaws).then((evLists)=>{
+                        evUserLists.lists = evLists
+                        this.psClient.publish(new GoOfflineResponse(request.userName,evUserLists),this.psTopics.GoOfflineRespTopic)
+                    })
+                })
+            })
+        })
+
+        this.psClient.subscribe(this.psTopics.GoOnlineReqTopic).each((request : GoOnlineRequest)=>{
+            let frozenLists = request.lists.lists.map((list)=>{return this.libs.freeze(list as any)})
+            delete request.lists.lists
+            let frozenUserLists : UserListsC = this.libs.freeze(request.lists as any)
+            frozenUserLists.lists = frozenLists
+            this.userLists.get(request.userName).merge(frozenUserLists)
+            this.psClient.publish(new GoOfflineResponse(request.userName,frozenUserLists as any),this.psTopics.GoOnlineRespTopic)
         })
     }
 }

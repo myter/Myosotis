@@ -13,13 +13,16 @@ export class MyoClient extends CAPplication{
 
     constructor(){
         super()
-        //this.server         = new ServerComm(this.libs.buffRemote("127.0.0.1",8000))
-        this.server         = new ServerComm(this.libs.setupPSClient("spitter.soft.vub.ac.be",8000),this.libs.PubSubTag)
+        //this.server         = new ServerComm(this.libs.setupPSClient("spitter.soft.vub.ac.be",8000),this.libs.PubSubTag)
+        this.server         = new ServerComm(this.libs.setupPSClient(),this.libs.PubSubTag)
         this.navs           = $("#nav_all")
         this.login          = new LoginScreen(this)
-        this.home           = new HomeScreen(this)
         this.currentScreen  = this.login
         this.hideNavs()
+    }
+
+    setHomeScreen(homeClass){
+        this.home = new homeClass(this)
     }
 
     changeScreen(toScreen?){
