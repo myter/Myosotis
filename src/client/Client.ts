@@ -13,8 +13,8 @@ export class MyoClient extends CAPplication{
 
     constructor(){
         super()
-        //this.server         = new ServerComm(this.libs.setupPSClient("spitter.soft.vub.ac.be",8000),this.libs.PubSubTag)
-        this.server         = new ServerComm(this.libs.setupPSClient(),this.libs.PubSubTag)
+        this.server         = new ServerComm(this.libs.setupPSClient("spitter.soft.vub.ac.be",8000),this.libs.PubSubTag)
+        //this.server         = new ServerComm(this.libs.setupPSClient(),this.libs.PubSubTag)
         this.navs           = $("#nav_all")
         this.login          = new LoginScreen(this)
         this.currentScreen  = this.login

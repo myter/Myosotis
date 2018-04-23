@@ -6,11 +6,11 @@ const APs_1 = require("../data/APs");
 const PubSub_1 = require("../data/PubSub");
 class Server extends spiders_captain_1.CAPplication {
     constructor(port, pathToHtml, pathToClientJS) {
-        //super("spitter.soft.vub.ac.be",8000)
+        super("spitter.soft.vub.ac.be", 8000);
         super();
         this.libs.setupPSServer();
-        //this.psClient   = this.libs.setupPSClient("spitter.soft.vub.ac.be",8000)
-        this.psClient = this.libs.setupPSClient();
+        this.psClient = this.libs.setupPSClient("spitter.soft.vub.ac.be", 8000);
+        //this.psClient   = this.libs.setupPSClient()
         this.psTopics = new PubSub_1.PubSubTopics(this.libs.PubSubTag);
         this.userLists = new Map();
         this.libs.serveApp(pathToHtml, pathToClientJS, "bundle.js", port);
