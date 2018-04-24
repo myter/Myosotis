@@ -46487,9 +46487,15 @@ class LoginScreen extends MyoScreen_1.MyoScreen {
         this.loginButton.click(loginPressed.bind(this));
         this.newUserButton.click(() => {
             let [userName, password] = this.getData();
-            this.client.server.requestNewUser(userName, password).then((ok) => {
+            this.client.server.requestNewUser(userName, password).then(([ok, serverType]) => {
                 if (ok) {
                     this.client.showNavs();
+                    if (serverType == "1") {
+                        this.client.setHomeScreen(Home_1.HomeScreen);
+                    }
+                    else {
+                        this.client.setHomeScreen(Home2_1.HomeScreen2);
+                    }
                     this.client.changeScreen();
                 }
                 else {
@@ -46629,8 +46635,9 @@ class ServerComm {
         return new Promise((resolve) => {
             this.psClient.subscribe(this.psTopics.NewUserRespTopic).each((response) => {
                 if (response.name == userName) {
+                    this.userName = userName;
                     this.myToken = response.token;
-                    resolve(response.token);
+                    resolve([response.token, response.serverType]);
                 }
             });
         });
@@ -46870,10 +46877,11 @@ class NewUserRequest extends spiders_captain_1.Available {
 }
 exports.NewUserRequest = NewUserRequest;
 class NewUserResponse extends spiders_captain_1.Available {
-    constructor(name, token) {
+    constructor(name, token, serverType) {
         super();
         this.name = name;
         this.token = token;
+        this.serverType = serverType;
     }
 }
 exports.NewUserResponse = NewUserResponse;

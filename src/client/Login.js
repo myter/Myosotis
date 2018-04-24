@@ -36,9 +36,15 @@ class LoginScreen extends MyoScreen_1.MyoScreen {
         this.loginButton.click(loginPressed.bind(this));
         this.newUserButton.click(() => {
             let [userName, password] = this.getData();
-            this.client.server.requestNewUser(userName, password).then((ok) => {
+            this.client.server.requestNewUser(userName, password).then(([ok, serverType]) => {
                 if (ok) {
                     this.client.showNavs();
+                    if (serverType == "1") {
+                        this.client.setHomeScreen(Home_1.HomeScreen);
+                    }
+                    else {
+                        this.client.setHomeScreen(Home2_1.HomeScreen2);
+                    }
                     this.client.changeScreen();
                 }
                 else {

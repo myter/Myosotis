@@ -43,10 +43,11 @@ class NewUserRequest extends spiders_captain_1.Available {
 }
 exports.NewUserRequest = NewUserRequest;
 class NewUserResponse extends spiders_captain_1.Available {
-    constructor(name, token) {
+    constructor(name, token, serverType) {
         super();
         this.name = name;
         this.token = token;
+        this.serverType = serverType;
     }
 }
 exports.NewUserResponse = NewUserResponse;

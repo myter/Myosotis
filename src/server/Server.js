@@ -68,7 +68,7 @@ class Server extends spiders_captain_1.CAPplication {
         this.psClient.subscribe(this.psTopics.NewUserReqTopic).each((request) => {
             this.dbActor.addUser(request.name, request.password).then(() => {
                 let token = jsonwebtoken_1.sign({}, conf.JSONWebTokenSecret);
-                this.psClient.publish(new PubSub_1.NewUserResponse(request.name, token), this.psTopics.NewUserRespTopic);
+                this.psClient.publish(new PubSub_1.NewUserResponse(request.name, token, 1), this.psTopics.NewUserRespTopic);
             });
         });
         //////////////////////////////////////
@@ -81,12 +81,12 @@ class Server extends spiders_captain_1.CAPplication {
                 }
                 else {
                     let newUserLists = new APs_1.UserLists(request.userName);
-                    newUserLists.onCommit((lists) => {
-                        console.log("New commit value for list on server !!!");
-                        lists.lists.forEach((list) => {
-                            console.log(list.listName);
-                        });
-                    });
+                    /*newUserLists.onCommit((lists : UserLists)=>{
+                        console.log("New commit value for list on server !!!")
+                        lists.lists.forEach((list : GroceryList)=>{
+                            console.log(list.listName)
+                        })
+                    })*/
                     this.userLists.set(request.userName, newUserLists);
                     this.psClient.publish(new PubSub_1.GetListsResponse(request.userName, newUserLists, this.boughList), this.psTopics.GetListsRespTopic);
                 }

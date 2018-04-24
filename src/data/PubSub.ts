@@ -70,11 +70,13 @@ export class NewUserRequest extends Available{
 export class NewUserResponse extends Available{
     name
     token
+    serverType
 
-    constructor(name : string,token){
+    constructor(name : string,token,serverType){
         super()
-        this.name   = name
-        this.token  = token
+        this.name           = name
+        this.token          = token
+        this.serverType     = serverType
     }
 }
 

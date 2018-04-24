@@ -1,31 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df517342-ad6e-4f37-91c3-3305522c1248" name="Default" comment="Added express to packages">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ExampleAppConfig.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/runMyosotisAP.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/runMyosotisAP.js.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/runMyosotisAP.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/runMyosotisCP.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/runMyosotisCP.js.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/runMyosotisCP.ts" />
+    <list default="true" id="df517342-ad6e-4f37-91c3-3305522c1248" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/client/Client.js" afterPath="$PROJECT_DIR$/src/client/Client.js" />
-      <change beforePath="$PROJECT_DIR$/src/client/Client.js.map" afterPath="$PROJECT_DIR$/src/client/Client.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/client/Client.ts" afterPath="$PROJECT_DIR$/src/client/Client.ts" />
+      <change beforePath="$PROJECT_DIR$/src/client/Login.js" afterPath="$PROJECT_DIR$/src/client/Login.js" />
+      <change beforePath="$PROJECT_DIR$/src/client/Login.js.map" afterPath="$PROJECT_DIR$/src/client/Login.js.map" />
+      <change beforePath="$PROJECT_DIR$/src/client/Login.ts" afterPath="$PROJECT_DIR$/src/client/Login.ts" />
+      <change beforePath="$PROJECT_DIR$/src/client/ServerComm.js" afterPath="$PROJECT_DIR$/src/client/ServerComm.js" />
+      <change beforePath="$PROJECT_DIR$/src/client/ServerComm.js.map" afterPath="$PROJECT_DIR$/src/client/ServerComm.js.map" />
+      <change beforePath="$PROJECT_DIR$/src/client/ServerComm.ts" afterPath="$PROJECT_DIR$/src/client/ServerComm.ts" />
       <change beforePath="$PROJECT_DIR$/src/client/bundle.js" afterPath="$PROJECT_DIR$/src/client/bundle.js" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main.ts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main2.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main2.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main2.ts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/server/DBActor.js" afterPath="$PROJECT_DIR$/src/server/DBActor.js" />
-      <change beforePath="$PROJECT_DIR$/src/server/DBActor.js.map" afterPath="$PROJECT_DIR$/src/server/DBActor.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/server/DBActor.ts" afterPath="$PROJECT_DIR$/src/server/DBActor.ts" />
+      <change beforePath="$PROJECT_DIR$/src/data/PubSub.js" afterPath="$PROJECT_DIR$/src/data/PubSub.js" />
+      <change beforePath="$PROJECT_DIR$/src/data/PubSub.js.map" afterPath="$PROJECT_DIR$/src/data/PubSub.js.map" />
+      <change beforePath="$PROJECT_DIR$/src/data/PubSub.ts" afterPath="$PROJECT_DIR$/src/data/PubSub.ts" />
       <change beforePath="$PROJECT_DIR$/src/server/Server.js" afterPath="$PROJECT_DIR$/src/server/Server.js" />
       <change beforePath="$PROJECT_DIR$/src/server/Server.js.map" afterPath="$PROJECT_DIR$/src/server/Server.js.map" />
       <change beforePath="$PROJECT_DIR$/src/server/Server.ts" afterPath="$PROJECT_DIR$/src/server/Server.ts" />
+      <change beforePath="$PROJECT_DIR$/src/server/Server2.js" afterPath="$PROJECT_DIR$/src/server/Server2.js" />
+      <change beforePath="$PROJECT_DIR$/src/server/Server2.js.map" afterPath="$PROJECT_DIR$/src/server/Server2.js.map" />
+      <change beforePath="$PROJECT_DIR$/src/server/Server2.ts" afterPath="$PROJECT_DIR$/src/server/Server2.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,27 +32,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Server.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/server/Server.ts">
+      <file leaf-file-name="PubSub.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/data/PubSub.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+            <state relative-caret-position="510">
+              <caret line="76" column="28" lean-forward="false" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
               <folding>
-                <element signature="e#0#55#0" expanded="true" />
-                <element signature="n#!!block;n#verifyToken#0;n#Server#0" expanded="true" />
-                <element signature="e#1458#1579#0" expanded="true" />
-                <element signature="n#!!block;n#getTokenError#0;n#Server#0" expanded="true" />
-                <element signature="n#!!block;n#checkTokenizedRequest#0;n#Server#0" expanded="true" />
-                <element signature="n#!!block;n#installPSListeners#0;n#Server#0" expanded="true" />
-                <element signature="e#2256#3133#0" expanded="true" />
-                <element signature="e#2325#3122#0" expanded="true" />
-                <element signature="e#2457#2932#0" expanded="true" />
-                <element signature="e#3251#3523#0" expanded="true" />
-                <element signature="e#3326#3512#0" expanded="true" />
-                <element signature="e#3766#4733#0" expanded="true" />
-                <element signature="e#3825#4722#0" expanded="true" />
-                <element signature="e#4225#4477#0" expanded="true" />
-                <element signature="e#4372#4454#0" expanded="true" />
+                <element signature="n#PubSubTopics#0" expanded="false" />
+                <element signature="n#!!block;n#constructor#0;n#GoOnlineResponse#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,9 +48,12 @@
       <file leaf-file-name="Client.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/Client.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="270">
+              <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+              <folding>
+                <element signature="n#!!block;n#constructor#0;n#MyoClient#0" expanded="true" />
+                <element signature="n#!!block;n#setHomeScreen#0;n#MyoClient#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,9 +61,45 @@
       <file leaf-file-name="Login.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/Login.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-              <folding />
+            <state relative-caret-position="510">
+              <caret line="46" column="89" lean-forward="false" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+              <folding>
+                <element signature="e#875#1480#0" expanded="true" />
+                <element signature="e#1017#1469#0" expanded="true" />
+                <element signature="e#1718#2170#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerComm.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/ServerComm.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="44" column="44" lean-forward="false" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
+              <folding>
+                <element signature="n#!!block;n#requestLogin#0;n#ServerComm#0" expanded="true" />
+                <element signature="e#1034#1339#0" expanded="true" />
+                <element signature="e#1132#1328#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Server.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/server/Server.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="870">
+              <caret line="97" column="57" lean-forward="false" selection-start-line="97" selection-start-column="57" selection-end-line="97" selection-end-column="57" />
+              <folding>
+                <element signature="n#!!block;n#verifyToken#0;n#Server#0" expanded="true" />
+                <element signature="e#1458#1579#0" expanded="true" />
+                <element signature="e#2256#3133#0" expanded="true" />
+                <element signature="e#2325#3122#0" expanded="true" />
+                <element signature="e#3251#3525#0" expanded="true" />
+                <element signature="e#3326#3514#0" expanded="true" />
+                <element signature="e#3827#4728#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,16 +155,12 @@
         <option value="$PROJECT_DIR$/src/client/Home.ts" />
         <option value="$PROJECT_DIR$/src/db/DBConf.conf" />
         <option value="$PROJECT_DIR$/src/client/HomeScreen2.ts" />
-        <option value="$PROJECT_DIR$/src/client/Login.ts" />
         <option value="$PROJECT_DIR$/node_modules/spiders.js/src/ChannelManager.js" />
         <option value="$PROJECT_DIR$/src/client/client.html" />
-        <option value="$PROJECT_DIR$/src/data/PubSub.ts" />
-        <option value="$PROJECT_DIR$/src/client/ServerComm.ts" />
         <option value="$PROJECT_DIR$/node_modules/spiders.captain/src/Consistent.js" />
         <option value="$PROJECT_DIR$/node_modules/spiders.captain/src/CAPMirror.js" />
         <option value="$PROJECT_DIR$/src/client/Home2.ts" />
         <option value="$PROJECT_DIR$/node_modules/spiders.captain/src/Eventual.js" />
-        <option value="$PROJECT_DIR$/src/server/Server2.ts" />
         <option value="$PROJECT_DIR$/src/data/APs.ts" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/node_modules/spiders.js/src/Sockets.js" />
@@ -159,11 +174,15 @@
         <option value="$PROJECT_DIR$/src/ExampleCPConfig.json" />
         <option value="$PROJECT_DIR$/src/ExampleAPConfig.json" />
         <option value="$PROJECT_DIR$/src/ExampleAppConfig.json" />
-        <option value="$PROJECT_DIR$/src/server/Server.ts" />
         <option value="$PROJECT_DIR$/src/client/Client.ts" />
         <option value="$PROJECT_DIR$/src/server/DBActor.ts" />
         <option value="$PROJECT_DIR$/src/main2.ts" />
         <option value="$PROJECT_DIR$/src/main.ts" />
+        <option value="$PROJECT_DIR$/src/server/Server.ts" />
+        <option value="$PROJECT_DIR$/src/server/Server2.ts" />
+        <option value="$PROJECT_DIR$/src/client/Login.ts" />
+        <option value="$PROJECT_DIR$/src/data/PubSub.ts" />
+        <option value="$PROJECT_DIR$/src/client/ServerComm.ts" />
       </list>
     </option>
   </component>
@@ -224,6 +243,18 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Myosotis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Myosotis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Myosotis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Myosotis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -260,7 +291,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.RunServer">
+  <component name="RunManager" selected="Node.js.RunServer2">
     <configuration name="MyoSimul2.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="MyoSimul2.js" working-dir="$PROJECT_DIR$/src/micro-benchmarks" />
     <configuration name="MyoSimul.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="MyoSimul.js" working-dir="$PROJECT_DIR$/src/micro-benchmarks" />
     <configuration name="RunServer" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="$PROJECT_DIR$/src/runMyosotisAP.js" working-dir="$PROJECT_DIR$/src" />
@@ -325,7 +356,7 @@
       <workItem from="1523602354978" duration="12122000" />
       <workItem from="1523691092073" duration="8336000" />
       <workItem from="1523904086539" duration="17529000" />
-      <workItem from="1524039028112" duration="20181000" />
+      <workItem from="1524039028112" duration="22090000" />
     </task>
     <task id="LOCAL-00001" summary="Added express to packages">
       <created>1523793386390</created>
@@ -383,11 +414,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524469170255</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Cleaned configuration">
+      <created>1524554501918</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1524554501918</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113802000" />
+    <option name="totallyTimeSpent" value="115711000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1337" extended-state="6" />
@@ -498,7 +536,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Added micro benchmarks" />
     <MESSAGE value="Added express to packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added express to packages" />
+    <MESSAGE value="Cleaned configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned configuration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -528,17 +567,15 @@
         <state relative-caret-position="30">
           <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
           <folding>
-            <element signature="e#0#55#0" expanded="true" />
-            <element signature="n#!!block;n#constructor#0;n#Server#0" expanded="true" />
+            <element signature="e#0#55#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#Server#0" expanded="false" />
             <element signature="e#1458#1579#0" expanded="true" />
             <element signature="e#1516#1568#0" expanded="false" />
             <element signature="e#1806#1966#0" expanded="false" />
-            <element signature="e#2457#2932#0" expanded="true" />
-            <element signature="e#3326#3512#0" expanded="true" />
-            <element signature="e#3766#4733#0" expanded="true" />
-            <element signature="e#3825#4722#0" expanded="true" />
-            <element signature="e#4225#4477#0" expanded="true" />
-            <element signature="e#4372#4454#0" expanded="true" />
+            <element signature="e#2457#2932#0" expanded="false" />
+            <element signature="e#3326#3514#0" expanded="true" />
+            <element signature="e#3768#4739#0" expanded="false" />
+            <element signature="e#3827#4728#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -690,25 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/PubSub.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="145" column="31" lean-forward="false" selection-start-line="145" selection-start-column="31" selection-end-line="145" selection-end-column="31" />
-          <folding>
-            <element signature="n#PubSubTopics#0" expanded="false" />
-            <element signature="n#!!block;n#constructor#0;n#PubSubTopics#0" expanded="false" />
-            <element signature="n#LoginRequest#0" expanded="false" />
-            <element signature="n#!!block;n#constructor#0;n#LoginReply#0" expanded="false" />
-            <element signature="n#NewUserRequest#0" expanded="false" />
-            <element signature="n#NewUserResponse#0" expanded="false" />
-            <element signature="n#!!block;n#constructor#0;n#GetListsRequest#0" expanded="false" />
-            <element signature="n#!!block;n#constructor#0;n#GoOfflineRequest#0" expanded="false" />
-            <element signature="n#!!block;n#constructor#0;n#GoOfflineResponse#0" expanded="false" />
-            <element signature="n#!!block;n#constructor#0;n#GoOnlineRequest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/spiders.captain/src/CAPMirror.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -731,30 +749,6 @@
             <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/Server2.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1142">
-          <caret line="134" column="47" lean-forward="false" selection-start-line="134" selection-start-column="47" selection-end-line="134" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#67#0" expanded="false" />
-            <element signature="n#!!block;n#constructor#0;n#Server2#0" expanded="false" />
-            <element signature="e#1561#1733#0" expanded="false" />
-            <element signature="e#1670#1722#0" expanded="false" />
-            <element signature="e#1960#2120#0" expanded="false" />
-            <element signature="e#2410#3354#0" expanded="false" />
-            <element signature="e#2479#3343#0" expanded="false" />
-            <element signature="e#2611#3153#0" expanded="false" />
-            <element signature="e#3547#3734#0" expanded="false" />
-            <element signature="e#3988#4653#0" expanded="false" />
-            <element signature="e#4047#4642#0" expanded="false" />
-            <element signature="e#4899#5522#0" expanded="false" />
-            <element signature="e#4958#5511#0" expanded="false" />
-            <element signature="e#5113#5496#0" expanded="false" />
-            <element signature="e#5270#5477#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -919,27 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/ServerComm.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="55" column="20" lean-forward="true" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
-          <folding>
-            <element signature="n#!!block;n#constructor#0;n#ServerComm#0" expanded="false" />
-            <element signature="n#!!block;n#requestLogin#0;n#ServerComm#0" expanded="false" />
-            <element signature="e#1034#1339#0" expanded="false" />
-            <element signature="e#1132#1328#0" expanded="false" />
-            <element signature="n#!!block;n#requestNewUser#0;n#ServerComm#0" expanded="false" />
-            <element signature="e#1542#1832#0" expanded="false" />
-            <element signature="e#1647#1821#0" expanded="false" />
-            <element signature="n#!!block;n#requestMyLists#0;n#ServerComm#0" expanded="false" />
-            <element signature="n#!!block;n#requestGoOffline#0;n#ServerComm#0" expanded="false" />
-            <element signature="n#!!block;n#requestGoOnline#0;n#ServerComm#0" expanded="false" />
-            <element signature="e#3182#3433#0" expanded="false" />
-            <element signature="e#3289#3422#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ExampleCPConfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -982,42 +955,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/Login.ts">
+    <entry file="file://$PROJECT_DIR$/src/server/Server2.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-          <folding />
+        <state relative-caret-position="735">
+          <caret line="69" column="71" lean-forward="false" selection-start-line="69" selection-start-column="71" selection-end-line="69" selection-end-column="71" />
+          <folding>
+            <element signature="n#!!block;n#constructor#0;n#Server2#0" expanded="false" />
+            <element signature="n#!!block;n#verifyToken#0;n#Server2#0" expanded="false" />
+            <element signature="e#1557#1678#0" expanded="false" />
+            <element signature="n#!!block;n#checkTokenizedRequest#0;n#Server2#0" expanded="false" />
+            <element signature="e#3350#3624#0" expanded="false" />
+            <element signature="e#3425#3613#0" expanded="false" />
+            <element signature="e#3867#4532#0" expanded="false" />
+            <element signature="e#3926#4521#0" expanded="false" />
+            <element signature="e#4778#5401#0" expanded="false" />
+            <element signature="e#4837#5390#0" expanded="false" />
+            <element signature="e#4992#5375#0" expanded="false" />
+            <element signature="e#5149#5356#0" expanded="false" />
+            <element signature="e#5502#5990#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/PubSub.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="76" column="28" lean-forward="false" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
+          <folding>
+            <element signature="n#PubSubTopics#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#GoOnlineResponse#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/Client.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="270">
+          <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!block;n#constructor#0;n#MyoClient#0" expanded="true" />
+            <element signature="n#!!block;n#setHomeScreen#0;n#MyoClient#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/Login.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="46" column="89" lean-forward="false" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+          <folding>
+            <element signature="e#875#1480#0" expanded="true" />
+            <element signature="e#1017#1469#0" expanded="true" />
+            <element signature="e#1718#2170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/ServerComm.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="44" column="44" lean-forward="false" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
+          <folding>
+            <element signature="n#!!block;n#requestLogin#0;n#ServerComm#0" expanded="true" />
+            <element signature="e#1034#1339#0" expanded="true" />
+            <element signature="e#1132#1328#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/Server.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+        <state relative-caret-position="870">
+          <caret line="97" column="57" lean-forward="false" selection-start-line="97" selection-start-column="57" selection-end-line="97" selection-end-column="57" />
           <folding>
-            <element signature="e#0#55#0" expanded="true" />
             <element signature="n#!!block;n#verifyToken#0;n#Server#0" expanded="true" />
             <element signature="e#1458#1579#0" expanded="true" />
-            <element signature="n#!!block;n#getTokenError#0;n#Server#0" expanded="true" />
-            <element signature="n#!!block;n#checkTokenizedRequest#0;n#Server#0" expanded="true" />
-            <element signature="n#!!block;n#installPSListeners#0;n#Server#0" expanded="true" />
             <element signature="e#2256#3133#0" expanded="true" />
             <element signature="e#2325#3122#0" expanded="true" />
-            <element signature="e#2457#2932#0" expanded="true" />
-            <element signature="e#3251#3523#0" expanded="true" />
-            <element signature="e#3326#3512#0" expanded="true" />
-            <element signature="e#3766#4733#0" expanded="true" />
-            <element signature="e#3825#4722#0" expanded="true" />
-            <element signature="e#4225#4477#0" expanded="true" />
-            <element signature="e#4372#4454#0" expanded="true" />
+            <element signature="e#3251#3525#0" expanded="true" />
+            <element signature="e#3326#3514#0" expanded="true" />
+            <element signature="e#3827#4728#0" expanded="true" />
           </folding>
         </state>
       </provider>

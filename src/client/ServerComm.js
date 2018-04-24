@@ -25,8 +25,9 @@ class ServerComm {
         return new Promise((resolve) => {
             this.psClient.subscribe(this.psTopics.NewUserRespTopic).each((response) => {
                 if (response.name == userName) {
+                    this.userName = userName;
                     this.myToken = response.token;
-                    resolve(response.token);
+                    resolve([response.token, response.serverType]);
                 }
             });
         });

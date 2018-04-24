@@ -44,9 +44,15 @@ export class LoginScreen extends MyoScreen{
         this.loginButton.click(loginPressed.bind(this))
         this.newUserButton.click(()=>{
             let [userName,password] = this.getData()
-            this.client.server.requestNewUser(userName,password).then((ok)=>{
+            this.client.server.requestNewUser(userName,password).then(([ok,serverType])=>{
                 if(ok){
                     this.client.showNavs()
+                    if(serverType == "1"){
+                        this.client.setHomeScreen(HomeScreen)
+                    }
+                    else{
+                        this.client.setHomeScreen(HomeScreen2)
+                    }
                     this.client.changeScreen()
                 }
                 else{

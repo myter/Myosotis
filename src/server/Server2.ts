@@ -8,7 +8,7 @@ import {
 import {BoughtList, GroceryList, GroceryListC, UserLists, UserListsC} from "../data/APs";
 import {sign, verify} from "jsonwebtoken";
 import {DBActor} from "./DBActor";
-
+let conf = require("../ExampleAppConfig.json")
 export class Server2 extends CAPplication {
     dbActor
     userLists : Map<string,UserListsC>
@@ -17,11 +17,9 @@ export class Server2 extends CAPplication {
     boughList : BoughtList
 
     constructor(port : number,pathToHtml : string,pathToClientJS : string){
-        //super("spitter.soft.vub.ac.be",8000)
-        super()
+        super(conf.ServerAddress,conf.ServerSocketPort)
         this.libs.setupPSServer()
-        //this.psClient   = this.libs.setupPSClient("spitter.soft.vub.ac.be",8000)
-        this.psClient   = this.libs.setupPSClient()
+        this.psClient   = this.libs.setupPSClient(conf.ServerAddress,conf.ServerSocketPort)
         this.psTopics   = new PubSubTopics(this.libs.PubSubTag)
         this.userLists  = new Map()
         this.libs.serveApp(pathToHtml,pathToClientJS,"bundle.js",port)
@@ -37,8 +35,7 @@ export class Server2 extends CAPplication {
 
     verifyToken(token) : Promise<boolean>{
         return new Promise((resolve)=>{
-            //TODO refactor before pushing to git
-            verify(token,"SOMESECRETTODOREFACTOR",(err)=>{
+            verify(token,conf.JSONWebTokenSecret,(err)=>{
                 return resolve(!err)
             })
         })
@@ -70,8 +67,7 @@ export class Server2 extends CAPplication {
                 if(exists){
                     this.dbActor.verifyUser(loginRequest.name,loginRequest.password).then((verified)=>{
                         if(verified){
-                            //TODO refactor before pushing to git
-                            let token = sign({},"SOMESECRETTODOREFACTOR")
+                            let token = sign({},conf.JSONWebTokenSecret)
                             this.psClient.publish(new LoginReply(loginRequest.name,verified,token,2),this.psTopics.LoginRespTopic)
                         }
                         else{
@@ -88,8 +84,8 @@ export class Server2 extends CAPplication {
         //New User
         this.psClient.subscribe(this.psTopics.NewUserReqTopic).each((request : NewUserRequest)=>{
             this.dbActor.addUser(request.name,request.password).then(()=>{
-                let token = sign({},"SOMESECRETTODOREFACTOR")
-                this.psClient.publish(new NewUserResponse(request.name,token),this.psTopics.NewUserRespTopic)
+                let token = sign({},conf.JSONWebTokenSecret)
+                this.psClient.publish(new NewUserResponse(request.name,token,2),this.psTopics.NewUserRespTopic)
             })
         })
 

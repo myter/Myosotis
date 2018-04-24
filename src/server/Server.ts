@@ -86,7 +86,7 @@ export class Server extends CAPplication {
         this.psClient.subscribe(this.psTopics.NewUserReqTopic).each((request : NewUserRequest)=>{
             this.dbActor.addUser(request.name,request.password).then(()=>{
                 let token = sign({},conf.JSONWebTokenSecret)
-                this.psClient.publish(new NewUserResponse(request.name,token),this.psTopics.NewUserRespTopic)
+                this.psClient.publish(new NewUserResponse(request.name,token,1),this.psTopics.NewUserRespTopic)
             })
         })
 
@@ -101,12 +101,12 @@ export class Server extends CAPplication {
                 }
                 else{
                     let newUserLists = new UserLists(request.userName)
-                    newUserLists.onCommit((lists : UserLists)=>{
+                    /*newUserLists.onCommit((lists : UserLists)=>{
                         console.log("New commit value for list on server !!!")
                         lists.lists.forEach((list : GroceryList)=>{
                             console.log(list.listName)
                         })
-                    })
+                    })*/
                     this.userLists.set(request.userName,newUserLists)
                     this.psClient.publish(new GetListsResponse(request.userName,newUserLists,this.boughList),this.psTopics.GetListsRespTopic)
                 }
