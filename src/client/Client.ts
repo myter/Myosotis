@@ -3,7 +3,7 @@ import {LoginScreen} from "./Login";
 import {MyoScreen} from "./MyoScreen";
 import {HomeScreen} from "./Home";
 import {ServerComm} from "./ServerComm";
-
+let conf = require("../ExampleAppConfig.json")
 export class MyoClient extends CAPplication{
     server          : ServerComm
     navs            : JQuery<HTMLElement>
@@ -13,8 +13,7 @@ export class MyoClient extends CAPplication{
 
     constructor(){
         super()
-        this.server         = new ServerComm(this.libs.setupPSClient("spitter.soft.vub.ac.be",8000),this.libs.PubSubTag)
-        //this.server         = new ServerComm(this.libs.setupPSClient(),this.libs.PubSubTag)
+        this.server         = new ServerComm(this.libs.setupPSClient(conf.ServerAddress,conf.ServerSocketPort),this.libs.PubSubTag)
         this.navs           = $("#nav_all")
         this.login          = new LoginScreen(this)
         this.currentScreen  = this.login

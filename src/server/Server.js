@@ -4,13 +4,12 @@ const DBActor_1 = require("./DBActor");
 const jsonwebtoken_1 = require("jsonwebtoken");
 const APs_1 = require("../data/APs");
 const PubSub_1 = require("../data/PubSub");
+let conf = require("../ExampleAppConfig.json");
 class Server extends spiders_captain_1.CAPplication {
     constructor(port, pathToHtml, pathToClientJS) {
-        super("spitter.soft.vub.ac.be", 8000);
-        super();
+        super(conf.ServerAddress, conf.ServerSocketPort);
         this.libs.setupPSServer();
-        this.psClient = this.libs.setupPSClient("spitter.soft.vub.ac.be", 8000);
-        //this.psClient   = this.libs.setupPSClient()
+        this.psClient = this.libs.setupPSClient(conf.ServerAddress, conf.ServerSocketPort);
         this.psTopics = new PubSub_1.PubSubTopics(this.libs.PubSubTag);
         this.userLists = new Map();
         this.libs.serveApp(pathToHtml, pathToClientJS, "bundle.js", port);
@@ -24,8 +23,7 @@ class Server extends spiders_captain_1.CAPplication {
     /////////////////////////////////////////////////////////
     verifyToken(token) {
         return new Promise((resolve) => {
-            //TODO refactor before pushing to git
-            jsonwebtoken_1.verify(token, "SOMESECRETTODOREFACTOR", (err) => {
+            jsonwebtoken_1.verify(token, conf.JSONWebTokenSecret, (err) => {
                 return resolve(!err);
             });
         });
@@ -53,8 +51,7 @@ class Server extends spiders_captain_1.CAPplication {
                 if (exists) {
                     this.dbActor.verifyUser(loginRequest.name, loginRequest.password).then((verified) => {
                         if (verified) {
-                            //TODO refactor before pushing to git
-                            let token = jsonwebtoken_1.sign({}, "SOMESECRETTODOREFACTOR");
+                            let token = jsonwebtoken_1.sign({}, conf.JSONWebTokenSecret);
                             this.psClient.publish(new PubSub_1.LoginReply(loginRequest.name, verified, token, 1), this.psTopics.LoginRespTopic);
                         }
                         else {
@@ -70,7 +67,7 @@ class Server extends spiders_captain_1.CAPplication {
         //New User
         this.psClient.subscribe(this.psTopics.NewUserReqTopic).each((request) => {
             this.dbActor.addUser(request.name, request.password).then(() => {
-                let token = jsonwebtoken_1.sign({}, "SOMESECRETTODOREFACTOR");
+                let token = jsonwebtoken_1.sign({}, conf.JSONWebTokenSecret);
                 this.psClient.publish(new PubSub_1.NewUserResponse(request.name, token), this.psTopics.NewUserRespTopic);
             });
         });

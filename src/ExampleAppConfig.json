@@ -1,0 +1,11 @@
+{
+  "ServerAddress" : "127.0.0.1",
+  "ServerSocketPort" : 8000,
+  "ServerHTMLPort" : 8888,
+  "JSONWebTokenSecret" : "ExampleSecret",
+  "DBLogin" : "app",
+  "DBPass" : "app",
+  "DBAddress" : "localhost",
+  "DBPort" : 27018,
+  "DBName" : "test"
+}

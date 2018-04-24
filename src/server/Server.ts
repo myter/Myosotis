@@ -7,6 +7,8 @@ import {
     PubSubTopics
 } from "../data/PubSub";
 
+let conf = require("../ExampleAppConfig.json")
+
 
 export class Server extends CAPplication {
     dbActor
@@ -16,11 +18,9 @@ export class Server extends CAPplication {
     boughList : BoughtList
 
     constructor(port : number,pathToHtml : string,pathToClientJS : string){
-        super("spitter.soft.vub.ac.be",8000)
-        super()
+        super(conf.ServerAddress,conf.ServerSocketPort)
         this.libs.setupPSServer()
-        this.psClient   = this.libs.setupPSClient("spitter.soft.vub.ac.be",8000)
-        //this.psClient   = this.libs.setupPSClient()
+        this.psClient   = this.libs.setupPSClient(conf.ServerAddress,conf.ServerSocketPort)
         this.psTopics   = new PubSubTopics(this.libs.PubSubTag)
         this.userLists  = new Map()
         this.libs.serveApp(pathToHtml,pathToClientJS,"bundle.js",port)
@@ -36,8 +36,7 @@ export class Server extends CAPplication {
 
     verifyToken(token) : Promise<boolean>{
         return new Promise((resolve)=>{
-            //TODO refactor before pushing to git
-            verify(token,"SOMESECRETTODOREFACTOR",(err)=>{
+            verify(token,conf.JSONWebTokenSecret,(err)=>{
                 return resolve(!err)
             })
         })
@@ -69,8 +68,7 @@ export class Server extends CAPplication {
                 if(exists){
                     this.dbActor.verifyUser(loginRequest.name,loginRequest.password).then((verified)=>{
                         if(verified){
-                            //TODO refactor before pushing to git
-                            let token = sign({},"SOMESECRETTODOREFACTOR")
+                            let token = sign({},conf.JSONWebTokenSecret)
                             this.psClient.publish(new LoginReply(loginRequest.name,verified,token,1),this.psTopics.LoginRespTopic)
                         }
                         else{
@@ -87,7 +85,7 @@ export class Server extends CAPplication {
         //New User
         this.psClient.subscribe(this.psTopics.NewUserReqTopic).each((request : NewUserRequest)=>{
             this.dbActor.addUser(request.name,request.password).then(()=>{
-                let token = sign({},"SOMESECRETTODOREFACTOR")
+                let token = sign({},conf.JSONWebTokenSecret)
                 this.psClient.publish(new NewUserResponse(request.name,token),this.psTopics.NewUserRespTopic)
             })
         })

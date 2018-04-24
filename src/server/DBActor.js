@@ -4,10 +4,15 @@ const spiders_captain_1 = require("spiders.captain");
 // Actor                                               //
 /////////////////////////////////////////////////////////
 class DBActor extends spiders_captain_1.Actor {
+    constructor() {
+        super();
+        this.thisDir = __dirname;
+    }
     init() {
+        let conf = require(this.thisDir + "/../ExampleAppConfig.json");
         let mongoose = require('mongoose');
-        //TODO needs to be obfuscated before pushing to public git
-        mongoose.connect('mongodb://app:app@localhost:27018/test');
+        let mongoURI = "mongodb://" + conf.DBLogin + ":" + conf.DBPass + "@" + conf.DBAddress + ":" + conf.DBPort + "/" + conf.DBName;
+        mongoose.connect(mongoURI);
         this.db = mongoose.connection;
         this.db.on('error', console.error.bind(console, 'connection error:'));
         this.db.on('open', () => {
