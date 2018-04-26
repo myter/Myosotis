@@ -3,22 +3,88 @@
   <component name="ChangeListManager">
     <list default="true" id="df517342-ad6e-4f37-91c3-3305522c1248" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/client/Login.js" afterPath="$PROJECT_DIR$/src/client/Login.js" />
-      <change beforePath="$PROJECT_DIR$/src/client/Login.js.map" afterPath="$PROJECT_DIR$/src/client/Login.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/client/Login.ts" afterPath="$PROJECT_DIR$/src/client/Login.ts" />
-      <change beforePath="$PROJECT_DIR$/src/client/ServerComm.js" afterPath="$PROJECT_DIR$/src/client/ServerComm.js" />
-      <change beforePath="$PROJECT_DIR$/src/client/ServerComm.js.map" afterPath="$PROJECT_DIR$/src/client/ServerComm.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/client/ServerComm.ts" afterPath="$PROJECT_DIR$/src/client/ServerComm.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/base64-js/base64js.min.js" afterPath="$PROJECT_DIR$/node_modules/base64-js/base64js.min.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/base64-js/index.js" afterPath="$PROJECT_DIR$/node_modules/base64-js/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/base64-js/package.json" afterPath="$PROJECT_DIR$/node_modules/base64-js/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/base64-js/test/big-data.js" afterPath="$PROJECT_DIR$/node_modules/base64-js/test/big-data.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/base64-js/test/convert.js" afterPath="$PROJECT_DIR$/node_modules/base64-js/test/convert.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/base64-js/test/url-safe.js" afterPath="$PROJECT_DIR$/node_modules/base64-js/test/url-safe.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/ejs.js" afterPath="$PROJECT_DIR$/node_modules/ejs/ejs.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/ejs.min.js" afterPath="$PROJECT_DIR$/node_modules/ejs/ejs.min.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/lib/ejs.js" afterPath="$PROJECT_DIR$/node_modules/ejs/lib/ejs.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/package.json" afterPath="$PROJECT_DIR$/node_modules/ejs/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pbkdf2/README.md" afterPath="$PROJECT_DIR$/node_modules/pbkdf2/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pbkdf2/browser.js" afterPath="$PROJECT_DIR$/node_modules/pbkdf2/browser.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pbkdf2/index.js" afterPath="$PROJECT_DIR$/node_modules/pbkdf2/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pbkdf2/lib/async.js" afterPath="$PROJECT_DIR$/node_modules/pbkdf2/lib/async.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pbkdf2/lib/precondition.js" afterPath="$PROJECT_DIR$/node_modules/pbkdf2/lib/precondition.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pbkdf2/lib/sync-browser.js" afterPath="$PROJECT_DIR$/node_modules/pbkdf2/lib/sync-browser.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pbkdf2/lib/sync.js" afterPath="$PROJECT_DIR$/node_modules/pbkdf2/lib/sync.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pbkdf2/package.json" afterPath="$PROJECT_DIR$/node_modules/pbkdf2/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ripemd160/LICENSE.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ripemd160/index.js" afterPath="$PROJECT_DIR$/node_modules/ripemd160/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ripemd160/node_modules/hash-base/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ripemd160/node_modules/hash-base/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ripemd160/node_modules/hash-base/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ripemd160/package.json" afterPath="$PROJECT_DIR$/node_modules/ripemd160/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/.idea/workspace.xml" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/package.json" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/src/CAPMirror.js" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/src/CAPMirror.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/src/CAPMirror.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/src/CAPMirror.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/src/CAPMirror.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/src/CAPMirror.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/src/Consistent.js" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/src/Consistent.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/src/Consistent.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/src/Consistent.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/src/Consistent.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/src/Consistent.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/src/Eventual.js" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/src/Eventual.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/src/Eventual.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/src/Eventual.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/src/Eventual.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/src/Eventual.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/tests/CAPExtensionBundle.js" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/tests/CAPExtensionBundle.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/tests/cap.Test.js" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/tests/cap.Test.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/tests/cap.Test.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/tests/cap.Test.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/tests/cap.Test.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/tests/cap.Test.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/tests/temp.js" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/tests/temp.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/tests/temp.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/tests/temp.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/tests/temp.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/tests/temp.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/tests/testCapExtension.js" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/tests/testCapExtension.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/tests/testCapExtension.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/tests/testCapExtension.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.captain/tests/testCapExtension.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.captain/tests/testCapExtension.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/index.d.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.js/index.d.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/package.json" afterPath="$PROJECT_DIR$/node_modules/spiders.js/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/ActorProto.js" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/ActorProto.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/ActorProto.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/ActorProto.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/ActorProto.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/ActorProto.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/ChannelManager.js" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/ChannelManager.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/MOP.js" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/MOP.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/MOP.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/MOP.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/MOP.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/MOP.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/Message.js" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/Message.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/Message.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/Message.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/Message.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/Message.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/Sockets.js" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/Sockets.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/messageHandler.js" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/messageHandler.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/messageHandler.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/messageHandler.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/messageHandler.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/messageHandler.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/serialisation.js" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/serialisation.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/serialisation.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/serialisation.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/serialisation.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/serialisation.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/spiders.js" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/spiders.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/spiders.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/spiders.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/spiders.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/spiders.ts" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/utils.js" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/utils.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/utils.js.map" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/utils.js.map" />
+      <change beforePath="$PROJECT_DIR$/node_modules/spiders.js/src/utils.ts" afterPath="$PROJECT_DIR$/node_modules/spiders.js/src/utils.ts" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/src/client/Home.js" afterPath="$PROJECT_DIR$/src/client/Home.js" />
+      <change beforePath="$PROJECT_DIR$/src/client/Home.js.map" afterPath="$PROJECT_DIR$/src/client/Home.js.map" />
+      <change beforePath="$PROJECT_DIR$/src/client/Home.ts" afterPath="$PROJECT_DIR$/src/client/Home.ts" />
+      <change beforePath="$PROJECT_DIR$/src/client/Home2.js" afterPath="$PROJECT_DIR$/src/client/Home2.js" />
+      <change beforePath="$PROJECT_DIR$/src/client/Home2.js.map" afterPath="$PROJECT_DIR$/src/client/Home2.js.map" />
+      <change beforePath="$PROJECT_DIR$/src/client/Home2.ts" afterPath="$PROJECT_DIR$/src/client/Home2.ts" />
       <change beforePath="$PROJECT_DIR$/src/client/bundle.js" afterPath="$PROJECT_DIR$/src/client/bundle.js" />
-      <change beforePath="$PROJECT_DIR$/src/data/PubSub.js" afterPath="$PROJECT_DIR$/src/data/PubSub.js" />
-      <change beforePath="$PROJECT_DIR$/src/data/PubSub.js.map" afterPath="$PROJECT_DIR$/src/data/PubSub.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/data/PubSub.ts" afterPath="$PROJECT_DIR$/src/data/PubSub.ts" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server.js" afterPath="$PROJECT_DIR$/src/server/Server.js" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server.js.map" afterPath="$PROJECT_DIR$/src/server/Server.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server.ts" afterPath="$PROJECT_DIR$/src/server/Server.ts" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server2.js" afterPath="$PROJECT_DIR$/src/server/Server2.js" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server2.js.map" afterPath="$PROJECT_DIR$/src/server/Server2.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server2.ts" afterPath="$PROJECT_DIR$/src/server/Server2.ts" />
+      <change beforePath="$PROJECT_DIR$/src/data/APs.js" afterPath="$PROJECT_DIR$/src/data/APs.js" />
+      <change beforePath="$PROJECT_DIR$/src/data/APs.js.map" afterPath="$PROJECT_DIR$/src/data/APs.js.map" />
+      <change beforePath="$PROJECT_DIR$/src/data/APs.ts" afterPath="$PROJECT_DIR$/src/data/APs.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,74 +98,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PubSub.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/data/PubSub.ts">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="76" column="28" lean-forward="false" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
-              <folding>
-                <element signature="n#PubSubTopics#0" expanded="false" />
-                <element signature="n#!!block;n#constructor#0;n#GoOnlineResponse#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/Client.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-              <folding>
-                <element signature="n#!!block;n#constructor#0;n#MyoClient#0" expanded="true" />
-                <element signature="n#!!block;n#setHomeScreen#0;n#MyoClient#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/Login.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="46" column="89" lean-forward="false" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
-              <folding>
-                <element signature="e#875#1480#0" expanded="true" />
-                <element signature="e#1017#1469#0" expanded="true" />
-                <element signature="e#1718#2170#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerComm.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/ServerComm.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="44" column="44" lean-forward="false" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
-              <folding>
-                <element signature="n#!!block;n#requestLogin#0;n#ServerComm#0" expanded="true" />
-                <element signature="e#1034#1339#0" expanded="true" />
-                <element signature="e#1132#1328#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Server.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/server/Server.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="97" column="57" lean-forward="false" selection-start-line="97" selection-start-column="57" selection-end-line="97" selection-end-column="57" />
-              <folding>
-                <element signature="n#!!block;n#verifyToken#0;n#Server#0" expanded="true" />
-                <element signature="e#1458#1579#0" expanded="true" />
-                <element signature="e#2256#3133#0" expanded="true" />
-                <element signature="e#2325#3122#0" expanded="true" />
-                <element signature="e#3251#3525#0" expanded="true" />
-                <element signature="e#3326#3514#0" expanded="true" />
-                <element signature="e#3827#4728#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -130,6 +134,7 @@
       <find>allList</find>
       <find>merge</find>
       <find>Init: 82</find>
+      <find>MUT</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -152,17 +157,13 @@
         <option value="$PROJECT_DIR$/src/client/NewItemModal.ts" />
         <option value="$PROJECT_DIR$/src/client/NewListModal.ts" />
         <option value="$PROJECT_DIR$/node_modules/spiders.captain/src/GSP.js" />
-        <option value="$PROJECT_DIR$/src/client/Home.ts" />
         <option value="$PROJECT_DIR$/src/db/DBConf.conf" />
         <option value="$PROJECT_DIR$/src/client/HomeScreen2.ts" />
         <option value="$PROJECT_DIR$/node_modules/spiders.js/src/ChannelManager.js" />
         <option value="$PROJECT_DIR$/src/client/client.html" />
         <option value="$PROJECT_DIR$/node_modules/spiders.captain/src/Consistent.js" />
         <option value="$PROJECT_DIR$/node_modules/spiders.captain/src/CAPMirror.js" />
-        <option value="$PROJECT_DIR$/src/client/Home2.ts" />
         <option value="$PROJECT_DIR$/node_modules/spiders.captain/src/Eventual.js" />
-        <option value="$PROJECT_DIR$/src/data/APs.ts" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/node_modules/spiders.js/src/Sockets.js" />
         <option value="$PROJECT_DIR$/src/micro-benchmarks/MyoSimul.ts" />
         <option value="$PROJECT_DIR$/src/micro-benchmarks/APresults.csv" />
@@ -178,11 +179,15 @@
         <option value="$PROJECT_DIR$/src/server/DBActor.ts" />
         <option value="$PROJECT_DIR$/src/main2.ts" />
         <option value="$PROJECT_DIR$/src/main.ts" />
-        <option value="$PROJECT_DIR$/src/server/Server.ts" />
         <option value="$PROJECT_DIR$/src/server/Server2.ts" />
         <option value="$PROJECT_DIR$/src/client/Login.ts" />
         <option value="$PROJECT_DIR$/src/data/PubSub.ts" />
         <option value="$PROJECT_DIR$/src/client/ServerComm.ts" />
+        <option value="$PROJECT_DIR$/src/server/Server.ts" />
+        <option value="$PROJECT_DIR$/src/data/APs.ts" />
+        <option value="$PROJECT_DIR$/src/client/Home.ts" />
+        <option value="$PROJECT_DIR$/src/client/Home2.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -201,10 +206,10 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="2560" />
-    <option name="height" value="1337" />
+    <option name="width" value="1440" />
+    <option name="height" value="812" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -224,7 +229,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,7 +264,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -356,7 +361,8 @@
       <workItem from="1523602354978" duration="12122000" />
       <workItem from="1523691092073" duration="8336000" />
       <workItem from="1523904086539" duration="17529000" />
-      <workItem from="1524039028112" duration="22090000" />
+      <workItem from="1524039028112" duration="22985000" />
+      <workItem from="1524766636108" duration="432000" />
     </task>
     <task id="LOCAL-00001" summary="Added express to packages">
       <created>1523793386390</created>
@@ -421,33 +427,41 @@
       <option name="project" value="LOCAL" />
       <updated>1524554501918</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed &quot;new user&quot; bug">
+      <created>1524557892503</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1524557892503</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115711000" />
+    <option name="totallyTimeSpent" value="117038000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1337" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="812" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39540607" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32895815" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07680189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1952079" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32805756" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39481267" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32805756" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -455,8 +469,6 @@
     <option name="version" value="1" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main.js.map" />
-        <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/src/server/Server.js.map" />
         <option value="$PROJECT_DIR$/src/server/Server.js" />
         <option value="$PROJECT_DIR$/src/client/Client.js.map" />
@@ -511,8 +523,6 @@
         <option value="$PROJECT_DIR$/node_modules/spiders.captain/src/CAPLib.js" />
         <option value="$PROJECT_DIR$/src/server/Server2.js.map" />
         <option value="$PROJECT_DIR$/src/server/Server2.js" />
-        <option value="$PROJECT_DIR$/src/main2.js" />
-        <option value="$PROJECT_DIR$/src/main2.js.map" />
         <option value="$PROJECT_DIR$/src/client/Home2.js" />
         <option value="$PROJECT_DIR$/src/client/Home2.js.map" />
         <option value="$PROJECT_DIR$/src/micro-benchmarks/MyoSimul.js.map" />
@@ -537,7 +547,8 @@
     <MESSAGE value="Added micro benchmarks" />
     <MESSAGE value="Added express to packages" />
     <MESSAGE value="Cleaned configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned configuration" />
+    <MESSAGE value="Fixed &quot;new user&quot; bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed &quot;new user&quot; bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -567,15 +578,15 @@
         <state relative-caret-position="30">
           <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
           <folding>
-            <element signature="e#0#55#0" expanded="false" />
-            <element signature="n#!!block;n#constructor#0;n#Server#0" expanded="false" />
-            <element signature="e#1458#1579#0" expanded="true" />
-            <element signature="e#1516#1568#0" expanded="false" />
-            <element signature="e#1806#1966#0" expanded="false" />
-            <element signature="e#2457#2932#0" expanded="false" />
-            <element signature="e#3326#3514#0" expanded="true" />
+            <element signature="n#!!block;n#verifyToken#0;n#Server#0" expanded="false" />
+            <element signature="e#1458#1579#0" expanded="false" />
+            <element signature="n#!!block;n#installPSListeners#0;n#Server#0" expanded="false" />
+            <element signature="e#2256#3133#0" expanded="false" />
+            <element signature="e#2325#3122#0" expanded="false" />
+            <element signature="e#3251#3525#0" expanded="false" />
+            <element signature="e#3326#3514#0" expanded="false" />
             <element signature="e#3768#4739#0" expanded="false" />
-            <element signature="e#3827#4728#0" expanded="true" />
+            <element signature="e#3827#4728#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -652,20 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/NewItemModal.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/NewListModal.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/spiders.captain/src/Eventual.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -706,7 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,9 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -745,38 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="63" column="55" lean-forward="false" selection-start-line="63" selection-start-column="55" selection-end-line="63" selection-end-column="55" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/Home2.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="40" column="65" lean-forward="false" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/APs.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="66" column="40" lean-forward="false" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
-          <folding>
-            <element signature="n#!!block;n#newListMUT#0;n#UserListsC#0" expanded="false" />
-            <element signature="n#!!block;n#addGroceryItemMUT#0;n#GroceryListC#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -784,9 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#48#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -794,40 +752,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
           <caret line="118" column="16" lean-forward="false" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="16" />
-          <folding>
-            <element signature="n#!!block;n#sendMessage#0;n#SocketHandler#0" expanded="false" />
-            <element signature="e#2395#2508#0" expanded="false" />
-            <element signature="e#4348#4461#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/micro-benchmarks/CPresults.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/micro-benchmarks/APresults.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="50" lean-forward="false" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/micro-benchmarks/CPresults.csv" />
+    <entry file="file://$PROJECT_DIR$/src/micro-benchmarks/APresults.csv" />
     <entry file="file://$PROJECT_DIR$/src/micro-benchmarks/runCP.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding>
-            <element signature="n#!!block;n#loop#0" expanded="false" />
-            <element signature="e#376#532#0" expanded="false" />
-            <element signature="e#588#621#0" expanded="false" />
-            <element signature="e#748#774#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -835,13 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding>
-            <element signature="n#!!block;n#loop#0" expanded="false" />
-            <element signature="e#375#531#0" expanded="false" />
-            <element signature="e#587#620#0" expanded="false" />
-            <element signature="e#747#773#0" expanded="false" />
-            <element signature="n#!!block;n#write#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -849,27 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="777">
           <caret line="134" column="12" lean-forward="false" selection-start-line="134" selection-start-column="12" selection-end-line="134" selection-end-column="12" />
-          <folding>
-            <element signature="e#1#64#0" expanded="false" />
-            <element signature="n#!!block;n#constructor#0;n#MyoServer2#0" expanded="false" />
-            <element signature="n#!!block;n#log#0;n#MyoServer2#0" expanded="false" />
-            <element signature="n#!!block;n#constructor#0;n#MyoClient2#0" expanded="false" />
-            <element signature="n#!!block;n#init#0;n#MyoClient2#0" expanded="false" />
-            <element signature="e#1227#1448#0" expanded="false" />
-            <element signature="n#!!block;n#performOps#0;n#MyoClient2#0" expanded="false" />
-            <element signature="e#1624#1949#0" expanded="false" />
-            <element signature="e#1762#1930#0" expanded="false" />
-            <element signature="e#2064#2119#0" expanded="false" />
-            <element signature="n#!!block;n#constructor#0;n#DataAccum2#0" expanded="false" />
-            <element signature="n#!!block;n#init#0;n#DataAccum2#0" expanded="false" />
-            <element signature="n#!!block;n#localChangeTime#0;n#DataAccum2#0" expanded="false" />
-            <element signature="n#!!block;n#onComplete#0;n#DataAccum2#0" expanded="false" />
-            <element signature="e#2925#2970#0" expanded="false" />
-            <element signature="e#3240#3461#0" expanded="false" />
-            <element signature="e#3305#3348#0" expanded="false" />
-            <element signature="e#3660#3773#0" expanded="false" />
-            <element signature="e#3700#3762#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -903,38 +808,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/Home.ts">
+    <entry file="file://$PROJECT_DIR$/src/ExampleCPConfig.json" />
+    <entry file="file://$PROJECT_DIR$/src/ExampleAppConfig.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="69" column="34" lean-forward="false" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="62" />
+        <state relative-caret-position="45">
+          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/PubSub.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="76" column="28" lean-forward="false" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
           <folding>
-            <element signature="e#3182#5464#0" expanded="false" />
+            <element signature="n#PubSubTopics#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#GoOnlineResponse#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ExampleCPConfig.json">
+    <entry file="file://$PROJECT_DIR$/src/client/Home.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="40" lean-forward="false" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        <state relative-caret-position="272">
+          <caret line="111" column="46" lean-forward="false" selection-start-line="111" selection-start-column="43" selection-end-line="111" selection-end-column="46" />
+          <folding>
+            <element signature="n#!!block;n#allListsListener#0;n#HomeScreen#0" expanded="false" />
+            <element signature="e#2504#2994#0" expanded="false" />
+            <element signature="e#3935#4009#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/Home2.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="225" column="32" lean-forward="false" selection-start-line="225" selection-start-column="32" selection-end-line="225" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!block;n#constructor#0;n#HomeScreen2#0" expanded="false" />
+            <element signature="e#1757#2191#0" expanded="false" />
+            <element signature="e#1791#2024#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/Login.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="46" column="89" lean-forward="false" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+          <folding>
+            <element signature="e#875#1480#0" expanded="false" />
+            <element signature="e#1017#1469#0" expanded="false" />
+            <element signature="e#1718#2170#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/NewItemModal.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/ServerComm.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="44" column="44" lean-forward="false" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
+          <folding>
+            <element signature="n#!!block;n#requestLogin#0;n#ServerComm#0" expanded="false" />
+            <element signature="e#1034#1339#0" expanded="false" />
+            <element signature="e#1132#1328#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/DBActor.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
+        <state relative-caret-position="450">
           <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#constructor#0;n#DBActor#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ExampleAppConfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -944,6 +896,43 @@
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/NewListModal.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="25" column="5" lean-forward="false" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/Server.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="115" column="1" lean-forward="false" selection-start-line="115" selection-start-column="1" selection-end-line="115" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#verifyToken#0;n#Server#0" expanded="false" />
+            <element signature="e#1458#1579#0" expanded="false" />
+            <element signature="n#!!block;n#installPSListeners#0;n#Server#0" expanded="false" />
+            <element signature="e#2256#3133#0" expanded="false" />
+            <element signature="e#2325#3122#0" expanded="false" />
+            <element signature="e#3251#3525#0" expanded="false" />
+            <element signature="e#3326#3514#0" expanded="false" />
+            <element signature="e#3768#4739#0" expanded="false" />
+            <element signature="e#3827#4728#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/Client.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!block;n#constructor#0;n#MyoClient#0" expanded="false" />
+            <element signature="n#!!block;n#setHomeScreen#0;n#MyoClient#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -957,85 +946,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/Server2.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="69" column="71" lean-forward="false" selection-start-line="69" selection-start-column="71" selection-end-line="69" selection-end-column="71" />
-          <folding>
-            <element signature="n#!!block;n#constructor#0;n#Server2#0" expanded="false" />
-            <element signature="n#!!block;n#verifyToken#0;n#Server2#0" expanded="false" />
-            <element signature="e#1557#1678#0" expanded="false" />
-            <element signature="n#!!block;n#checkTokenizedRequest#0;n#Server2#0" expanded="false" />
-            <element signature="e#3350#3624#0" expanded="false" />
-            <element signature="e#3425#3613#0" expanded="false" />
-            <element signature="e#3867#4532#0" expanded="false" />
-            <element signature="e#3926#4521#0" expanded="false" />
-            <element signature="e#4778#5401#0" expanded="false" />
-            <element signature="e#4837#5390#0" expanded="false" />
-            <element signature="e#4992#5375#0" expanded="false" />
-            <element signature="e#5149#5356#0" expanded="false" />
-            <element signature="e#5502#5990#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/PubSub.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="76" column="28" lean-forward="false" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
-          <folding>
-            <element signature="n#PubSubTopics#0" expanded="false" />
-            <element signature="n#!!block;n#constructor#0;n#GoOnlineResponse#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/Client.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-          <folding>
-            <element signature="n#!!block;n#constructor#0;n#MyoClient#0" expanded="true" />
-            <element signature="n#!!block;n#setHomeScreen#0;n#MyoClient#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/Login.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="46" column="89" lean-forward="false" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
-          <folding>
-            <element signature="e#875#1480#0" expanded="true" />
-            <element signature="e#1017#1469#0" expanded="true" />
-            <element signature="e#1718#2170#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/ServerComm.ts">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
-          <caret line="44" column="44" lean-forward="false" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
-          <folding>
-            <element signature="n#!!block;n#requestLogin#0;n#ServerComm#0" expanded="true" />
-            <element signature="e#1034#1339#0" expanded="true" />
-            <element signature="e#1132#1328#0" expanded="true" />
-          </folding>
+          <caret line="69" column="71" lean-forward="false" selection-start-line="69" selection-start-column="71" selection-end-line="69" selection-end-column="71" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/Server.ts">
+    <entry file="file://$PROJECT_DIR$/src/data/APs.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="97" column="57" lean-forward="false" selection-start-line="97" selection-start-column="57" selection-end-line="97" selection-end-column="57" />
-          <folding>
-            <element signature="n#!!block;n#verifyToken#0;n#Server#0" expanded="true" />
-            <element signature="e#1458#1579#0" expanded="true" />
-            <element signature="e#2256#3133#0" expanded="true" />
-            <element signature="e#2325#3122#0" expanded="true" />
-            <element signature="e#3251#3525#0" expanded="true" />
-            <element signature="e#3326#3514#0" expanded="true" />
-            <element signature="e#3827#4728#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="465">
+          <caret line="53" column="31" lean-forward="false" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,3 +1,9 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const spiders_captain_1 = require("spiders.captain");
 class UserLists extends spiders_captain_1.Eventual {
@@ -6,10 +12,13 @@ class UserLists extends spiders_captain_1.Eventual {
         this.owner = ownerName;
         this.lists = [];
     }
-    newListMUT(list) {
+    newList(list) {
         this.lists.push(list);
     }
 }
+__decorate([
+    spiders_captain_1.mutating
+], UserLists.prototype, "newList", null);
 exports.UserLists = UserLists;
 class GroceryList extends spiders_captain_1.Eventual {
     constructor(name) {
@@ -17,31 +26,43 @@ class GroceryList extends spiders_captain_1.Eventual {
         this.listName = name;
         this.items = new Map();
     }
-    addGroceryItemMUT(itemName) {
+    addGroceryItem(itemName) {
         if (this.items.has(itemName)) {
-            this.incQuantityMUT(itemName);
+            this.incQuantity(itemName);
         }
         else {
             this.items.set(itemName, 1);
         }
     }
-    remGroceryItemMUT(itemName) {
+    remGroceryItem(itemName) {
         this.items.delete(itemName);
     }
-    incQuantityMUT(itemName) {
+    incQuantity(itemName) {
         let prevQuantity = this.items.get(itemName);
         this.items.set(itemName, prevQuantity + 1);
     }
-    decQuantityMUT(itemName) {
+    decQuantity(itemName) {
         let prevQuantity = this.items.get(itemName);
         if (prevQuantity - 1 <= 0) {
-            this.remGroceryItemMUT(itemName);
+            this.remGroceryItem(itemName);
         }
         else {
             this.items.set(itemName, prevQuantity - 1);
         }
     }
 }
+__decorate([
+    spiders_captain_1.mutating
+], GroceryList.prototype, "addGroceryItem", null);
+__decorate([
+    spiders_captain_1.mutating
+], GroceryList.prototype, "remGroceryItem", null);
+__decorate([
+    spiders_captain_1.mutating
+], GroceryList.prototype, "incQuantity", null);
+__decorate([
+    spiders_captain_1.mutating
+], GroceryList.prototype, "decQuantity", null);
 exports.GroceryList = GroceryList;
 class UserListsC extends spiders_captain_1.Consistent {
     constructor(ownerName) {
@@ -49,7 +70,7 @@ class UserListsC extends spiders_captain_1.Consistent {
         this.owner = ownerName;
         this.lists = [];
     }
-    newListMUT(listName, listConstructor) {
+    newList(listName, listConstructor) {
         this.lists.push(new listConstructor(listName));
     }
     merge(otherList) {
@@ -88,6 +109,9 @@ class UserListsC extends spiders_captain_1.Consistent {
         });
     }
 }
+__decorate([
+    spiders_captain_1.mutating
+], UserListsC.prototype, "newList", null);
 exports.UserListsC = UserListsC;
 class GroceryListC extends spiders_captain_1.Consistent {
     constructor(name) {
@@ -95,25 +119,25 @@ class GroceryListC extends spiders_captain_1.Consistent {
         this.listName = name;
         this.items = new Map();
     }
-    addGroceryItemMUT(itemName) {
+    addGroceryItem(itemName) {
         if (this.items.has(itemName)) {
-            this.incQuantityMUT(itemName);
+            this.incQuantity(itemName);
         }
         else {
             this.items.set(itemName, 1);
         }
     }
-    remGroceryItemMUT(itemName) {
+    remGroceryItem(itemName) {
         this.items.delete(itemName);
     }
-    incQuantityMUT(itemName) {
+    incQuantity(itemName) {
         let prevQuantity = this.items.get(itemName);
         this.items.set(itemName, prevQuantity + 1);
     }
-    decQuantityMUT(itemName) {
+    decQuantity(itemName) {
         let prevQuantity = this.items.get(itemName);
         if (prevQuantity - 1 <= 0) {
-            this.remGroceryItemMUT(itemName);
+            this.remGroceryItem(itemName);
         }
         else {
             this.items.set(itemName, prevQuantity - 1);
@@ -123,6 +147,18 @@ class GroceryListC extends spiders_captain_1.Consistent {
         this.items.set(itemName, quantity);
     }
 }
+__decorate([
+    spiders_captain_1.mutating
+], GroceryListC.prototype, "addGroceryItem", null);
+__decorate([
+    spiders_captain_1.mutating
+], GroceryListC.prototype, "remGroceryItem", null);
+__decorate([
+    spiders_captain_1.mutating
+], GroceryListC.prototype, "incQuantity", null);
+__decorate([
+    spiders_captain_1.mutating
+], GroceryListC.prototype, "decQuantity", null);
 exports.GroceryListC = GroceryListC;
 class BoughtList extends spiders_captain_1.Consistent {
     constructor() {

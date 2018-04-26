@@ -16,7 +16,7 @@ class HomeScreen extends MyoScreen_1.MyoScreen {
         this.newListModal = new NewListModal_1.NewListModal((listName) => {
             let addToList = () => {
                 let newList = new APs_1.GroceryList(listName);
-                this.myLists.newListMUT(newList);
+                this.myLists.newList(newList);
             };
             if (this.myLists) {
                 addToList();
@@ -26,7 +26,7 @@ class HomeScreen extends MyoScreen_1.MyoScreen {
             }
         });
         this.newItemModal = new NewItemModal_1.NewItemModal((itemName) => {
-            this.currentList.addGroceryItemMUT(itemName);
+            this.currentList.addGroceryItem(itemName);
         });
         this.installListeners();
     }
@@ -74,7 +74,7 @@ class HomeScreen extends MyoScreen_1.MyoScreen {
                     li.append(p);
                     let inc = $("<a>");
                     inc.on('click', () => {
-                        list.incQuantityMUT(itemName);
+                        list.incQuantity(itemName);
                     });
                     inc.addClass("waves-effect waves-light btn brown darken-1");
                     let incIcon = $("<i class='material-icons'>add<i/>");
@@ -82,7 +82,7 @@ class HomeScreen extends MyoScreen_1.MyoScreen {
                     li.append(inc);
                     let dec = $("<a>");
                     dec.on('click', () => {
-                        list.decQuantityMUT(itemName);
+                        list.decQuantity(itemName);
                     });
                     dec.addClass("waves-effect waves-light btn red");
                     let decIcon = $("<i class='material-icons'>remove<i/>");

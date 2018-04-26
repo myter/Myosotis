@@ -1,4 +1,4 @@
-import {Consistent, Eventual as Available} from "spiders.captain"
+import {Consistent, Eventual as Available, mutating} from "spiders.captain"
 
 export class UserLists extends Available{
     owner : string
@@ -10,7 +10,8 @@ export class UserLists extends Available{
         this.lists = []
     }
 
-    newListMUT(list : GroceryList){
+    @mutating
+    newList(list : GroceryList){
         this.lists.push(list)
     }
 }
@@ -25,28 +26,32 @@ export class GroceryList extends Available{
         this.items      = new Map()
     }
 
-    addGroceryItemMUT(itemName : string){
+    @mutating
+    addGroceryItem(itemName : string){
         if(this.items.has(itemName)){
-            this.incQuantityMUT(itemName)
+            this.incQuantity(itemName)
         }
         else{
             this.items.set(itemName,1)
         }
     }
 
-    remGroceryItemMUT(itemName : string){
+    @mutating
+    remGroceryItem(itemName : string){
         this.items.delete(itemName)
     }
 
-    incQuantityMUT(itemName){
+    @mutating
+    incQuantity(itemName){
         let prevQuantity = this.items.get(itemName)
         this.items.set(itemName,prevQuantity+1)
     }
 
-    decQuantityMUT(itemName){
+    @mutating
+    decQuantity(itemName){
         let prevQuantity = this.items.get(itemName)
         if(prevQuantity -1 <= 0){
-            this.remGroceryItemMUT(itemName)
+            this.remGroceryItem(itemName)
         }
         else{
             this.items.set(itemName,prevQuantity-1)
@@ -64,7 +69,8 @@ export class UserListsC extends Consistent{
         this.lists = []
     }
 
-    newListMUT(listName,listConstructor){
+    @mutating
+    newList(listName,listConstructor){
         this.lists.push(new listConstructor(listName))
     }
 
@@ -115,28 +121,32 @@ export class GroceryListC extends Consistent{
         this.items      = new Map()
     }
 
-    addGroceryItemMUT(itemName : string){
+    @mutating
+    addGroceryItem(itemName : string){
         if(this.items.has(itemName)){
-            this.incQuantityMUT(itemName)
+            this.incQuantity(itemName)
         }
         else{
             this.items.set(itemName,1)
         }
     }
 
-    remGroceryItemMUT(itemName : string){
+    @mutating
+    remGroceryItem(itemName : string){
         this.items.delete(itemName)
     }
 
-    incQuantityMUT(itemName){
+    @mutating
+    incQuantity(itemName){
         let prevQuantity = this.items.get(itemName)
         this.items.set(itemName,prevQuantity+1)
     }
 
-    decQuantityMUT(itemName){
+    @mutating
+    decQuantity(itemName){
         let prevQuantity = this.items.get(itemName)
         if(prevQuantity -1 <= 0){
-            this.remGroceryItemMUT(itemName)
+            this.remGroceryItem(itemName)
         }
         else{
             this.items.set(itemName,prevQuantity-1)

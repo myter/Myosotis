@@ -35853,8 +35853,12 @@ class CAPMirror extends spiders_js_1.SpiderActorMirror {
         fields.forEach(([fieldName, fieldvalue]) => {
             con[fieldName] = fieldvalue;
         });
-        methods.forEach(([methodName, methodString]) => {
+        methods.forEach(([methodName, methodString, isMutating]) => {
             con[methodName] = this.simpleBind(this.constructMethod(methodString), con);
+            if (isMutating) {
+                let conMirror = this.base.behaviourObject.libs.reflectOnObject(con);
+                conMirror.annotate(methodName, () => { }, "mutating");
+            }
         });
         return con;
     }
@@ -35872,8 +35876,12 @@ class CAPMirror extends spiders_js_1.SpiderActorMirror {
             fields.forEach(([fieldName, fieldvalue]) => {
                 ev[fieldName] = fieldvalue;
             });
-            methods.forEach(([methodName, methodString]) => {
+            methods.forEach(([methodName, methodString, isMutating]) => {
                 ev[methodName] = this.simpleBind(this.constructMethod(methodString), ev);
+                if (isMutating) {
+                    let evMirror = this.base.behaviourObject.libs.reflectOnObject(ev);
+                    evMirror.annotate(methodName, () => { }, "mutating");
+                }
             });
             return ev;
         });
@@ -35985,6 +35993,14 @@ class ConsistentMirror extends spiders_js_1.SpiderObjectMirror {
             });
         }
     }
+    isMutatingMethod(methodName) {
+        if (this.isAnnotated(methodName)) {
+            return this.getAnnotationTag(methodName) == "mutating";
+        }
+        else {
+            return false;
+        }
+    }
     access(fieldName) {
         if (fieldName == "_GET_THAW_DATA_") {
             return new Promise((resolve) => {
@@ -35999,7 +36015,7 @@ class ConsistentMirror extends spiders_js_1.SpiderObjectMirror {
                 baseKeys.concat(protoKeys).forEach((key) => {
                     if (typeof this.base[key] == 'function') {
                         let meth = this.base[key].toString();
-                        methods.push([key, meth]);
+                        methods.push([key, meth, this.isMutatingMethod(key)]);
                     }
                     else {
                         fields.push([key, this.base[key]]);
@@ -36029,14 +36045,7 @@ spiders_js_1.bundleScope(ConsistentMirror, conMirrorScope);
 Object.defineProperty(exports, "__esModule", { value: true });
 const spiders_js_1 = require("spiders.js");
 exports._IS_EVENTUAL_KEY_ = "_IS_EVENTUAL_";
-function mutating(target, propertyKey, descriptor) {
-    let originalMethod = descriptor.value;
-    originalMethod["_IS_MUTATING_"] = true;
-    return {
-        value: originalMethod
-    };
-}
-exports.mutating = mutating;
+exports.mutating = spiders_js_1.makeMethodAnnotation(() => { }, "mutating");
 class Eventual extends spiders_js_1.SpiderIsolate {
     constructor() {
         super(new EventualMirror());
@@ -36286,6 +36295,14 @@ class EventualMirror extends spiders_js_1.SpiderIsolateMirror {
             return true;
         }
     }
+    isMutatingMethod(methodName) {
+        if (this.isAnnotated(methodName)) {
+            return this.getAnnotationTag(methodName) == "mutating";
+        }
+        else {
+            return false;
+        }
+    }
     invoke(methodName, args) {
         let baseEV = this.base;
         if (!baseEV.hostGsp) {
@@ -36298,7 +36315,7 @@ class EventualMirror extends spiders_js_1.SpiderIsolateMirror {
                         baseEV.addDependency(arg);
                     }
                 });
-                if (this.canInvoke(methodName, args) && (methodName.includes("MUT") || baseEV[methodName]["_IS_MUTATING_"])) {
+                if (this.canInvoke(methodName, args) && this.isMutatingMethod(methodName)) {
                     //No host GSP yet for this eventual, which means that it hasn't been serialised yet but created by hosting actor
                     //Safe to trigger both tentative and commit handlers
                     let ret = super.invoke(methodName, args);
@@ -36323,7 +36340,7 @@ class EventualMirror extends spiders_js_1.SpiderIsolateMirror {
                 }
             }
             else {
-                if (this.canInvoke(methodName, args) && (methodName.includes("MUT") || baseEV[methodName]["_IS_MUTATING_"])) {
+                if (this.canInvoke(methodName, args) && this.isMutatingMethod(methodName)) {
                     baseEV.hostGsp.createRound(baseEV.id, baseEV.ownerId, methodName, args);
                     let ret = super.invoke(methodName, args);
                     baseEV.hostGsp.yield(baseEV.id, baseEV.ownerId);
@@ -36380,7 +36397,7 @@ class EventualMirror extends spiders_js_1.SpiderIsolateMirror {
             baseKeys.concat(protoKeys).forEach((key) => {
                 if (typeof this.base[key] == 'function') {
                     let meth = this.base[key].toString();
-                    methods.push([key, meth]);
+                    methods.push([key, meth, this.isMutatingMethod(key)]);
                 }
                 else {
                     let base = this.base;
@@ -36740,9 +36757,11 @@ else {
         var methods = JSON.parse(process.argv[9]);
         let actorMirrVars = JSON.parse(process.argv[11]);
         let actorMirrMethods = JSON.parse(process.argv[12]);
-        let actorMirror = serialisation_1.reconstructBehaviour({}, actorMirrVars, actorMirrMethods, environment);
+        let methAnnots = JSON.parse(process.argv[13]);
+        let mirrMethAnnots = JSON.parse(process.argv[14]);
+        let actorMirror = serialisation_1.reconstructBehaviour({}, actorMirrVars, actorMirrMethods, mirrMethAnnots, environment);
         environment = new ActorEnvironment_1.ServerActorEnvironment(thisId, address, port, actorMirror);
-        behaviourObject = serialisation_1.reconstructBehaviour({}, variables, methods, environment);
+        behaviourObject = serialisation_1.reconstructBehaviour({}, variables, methods, methAnnots, environment);
         //reconstructStatic(behaviourObject,JSON.parse(process.argv[10]),thisRef,promisePool,socketManager,objectPool,gspInstance)
     }
     environment.objectPool.installBehaviourObject(behaviourObject);
@@ -36922,10 +36941,6 @@ class ChannelManager extends CommMedium_1.CommMedium {
         }
         else if (this.connectedActors.has(actorId) || this.socketHandler.disconnectedActors.indexOf(actorId) != -1) {
             this.socketHandler.sendMessage(actorId, message);
-        }
-        else if(actorId == this.messageHandler.environment.thisRef.ownerId){
-            console.log("Self send!")
-            this.messageHandler.dispatch(message)
         }
         else {
             //Dirty, but it could be that an actor sends a message to the application actor, leading it to spawn a new actor and returning this new reference.
@@ -37448,7 +37463,25 @@ class SpiderObjectMirror {
     bindProxy(proxy) {
         this.proxyBase = proxy;
     }
+    isAnnotated(methodName) {
+        return this.base[methodName]["_ANNOT_CALL_"];
+    }
+    getAnnotationCall(methodName) {
+        return this.base[methodName]["_ANNOT_CALL_"];
+    }
+    getAnnotationTag(methodName) {
+        return this.base[methodName]["_ANNOT_TAG_"];
+    }
+    annotate(methodName, annotationCall, annotationTag) {
+        this.base[methodName]["_ANNOT_CALL_"] = annotationCall;
+        this.base[methodName]["_ANNOT_TAG_"] = annotationTag;
+    }
     invoke(methodName, args) {
+        let method = this.base[methodName];
+        let annot = utils_1.isAnnotatedMethod(method);
+        if (annot) {
+            annot(this, methodName, args);
+        }
         return this.base[methodName](...args);
     }
     access(fieldName) {
@@ -37483,7 +37516,25 @@ class SpiderIsolateMirror {
     bindProxy(proxy) {
         this.proxyBase = proxy;
     }
+    isAnnotated(methodName) {
+        return this.base[methodName]["_ANNOT_CALL_"];
+    }
+    getAnnotationCall(methodName) {
+        return this.base[methodName]["_ANNOT_CALL_"];
+    }
+    getAnnotationTag(methodName) {
+        return this.base[methodName]["_ANNOT_TAG_"];
+    }
+    annotate(methodName, annotationCall, annotationTag) {
+        this.base[methodName]["_ANNOT_CALL_"] = annotationCall;
+        this.base[methodName]["_ANNOT_TAG_"] = annotationTag;
+    }
     invoke(methodName, args) {
+        let method = this.base[methodName];
+        let annot = utils_1.isAnnotatedMethod(method);
+        if (annot) {
+            annot(this, methodName, args);
+        }
         return this.base[methodName](...args);
     }
     access(fieldName) {
@@ -37591,8 +37642,17 @@ class SpiderObject {
         let proxied = makeSpiderObjectProxy(thisClone, this.mirror);
         for (var i in thisClone) {
             if (typeof thisClone[i] == 'function' && i != "constructor") {
+                let original = thisClone[i];
+                let toCopy = [];
+                Reflect.ownKeys(original).forEach((key) => {
+                    if (key != "length" && key != "name" && key != "arguments" && key != "caller" && key != "prototype") {
+                        toCopy.push([key, original[key]]);
+                    }
+                });
                 thisClone[i] = simpleBind(thisClone[i], proxied);
-                //thisClone[i] = thisClone[i].bind(proxied)
+                toCopy.forEach(([key, val]) => {
+                    thisClone[i][key] = val;
+                });
             }
         }
         objectMirror.bindProxy(proxied);
@@ -37626,7 +37686,6 @@ class SpiderIsolate {
                     }
                 });
                 thisClone[i] = simpleBind(thisClone[i], proxied);
-                //thisClone[i] = thisClone[i].bind(proxied);
                 toCopy.forEach(([key, val]) => {
                     thisClone[i][key] = val;
                 });
@@ -37653,7 +37712,6 @@ class SpiderIsolate {
                     }
                 });
                 isolClone[i] = simpleBind(isolClone[i], proxied);
-                //isolClone[i] = isolClone[i].bind(proxied);
                 toCopy.forEach(([key, val]) => {
                     isolClone[i][key] = val;
                 });
@@ -37726,14 +37784,16 @@ Message.clientSenderType = "_CLIENT_";
 exports.Message = Message;
 exports._INSTALL_BEHAVIOUR_ = 0;
 class InstallBehaviourMessage extends Message {
-    constructor(senderRef, mainId, actorId, vars, methods, mirrorVars, mirrorMethods, staticProperties, otherActorIds) {
+    constructor(senderRef, mainId, actorId, vars, methods, methAnnots, mirrorVars, mirrorMethods, mirrorMethAnnots, staticProperties, otherActorIds) {
         super(exports._INSTALL_BEHAVIOUR_, senderRef);
         this.mainId = mainId;
         this.actorId = actorId;
         this.vars = vars;
         this.methods = methods;
+        this.methAnnots = methAnnots;
         this.mirrorVars = mirrorVars;
         this.mirrorMethods = mirrorMethods;
+        this.mirrorMethAnnots = mirrorMethAnnots;
         this.staticProperties = staticProperties;
         this.otherActorIds = otherActorIds;
     }
@@ -39591,7 +39651,7 @@ class SocketHandler {
                 if (!ack) {
                     this.sendMessage(actorId, msg);
                 }
-            }, 5000);
+            }, 1000);
         }
         else {
             //TODO TEMP
@@ -39643,7 +39703,7 @@ class ServerSocketManager extends CommMedium_1.CommMedium {
                 if (!ack) {
                     this.sendMessage(actorId, msg);
                 }
-            }, 5000);
+            }, 1000);
         }
         else {
             this.socketHandler.sendMessage(actorId, msg);
@@ -39702,8 +39762,8 @@ class MessageHandler {
     handleInstall(msg, ports) {
         var thisId = msg.actorId;
         var mainId = msg.mainId;
-        var behaviourObject = serialisation_1.reconstructBehaviour({}, msg.vars, msg.methods, this.environment);
-        var actorMirror = serialisation_1.reconstructBehaviour({}, msg.mirrorVars, msg.mirrorMethods, this.environment);
+        var behaviourObject = serialisation_1.reconstructBehaviour({}, msg.vars, msg.methods, msg.methAnnots, this.environment);
+        var actorMirror = serialisation_1.reconstructBehaviour({}, msg.mirrorVars, msg.mirrorMethods, msg.mirrorMethAnnots, this.environment);
         actorMirror.bindBase(this.environment, serialisation_1.serialise);
         this.environment.actorMirror = actorMirror;
         serialisation_1.reconstructStatic(behaviourObject, msg.staticProperties, this.environment);
@@ -40057,6 +40117,9 @@ function constructMethod(functionSource) {
     if (functionSource.startsWith("function")) {
         var method = eval("(" + functionSource + ")");
     }
+    else if (functionSource.startsWith("(")) {
+        var method = eval(functionSource);
+    }
     else {
         var method = eval("(function " + functionSource + ")");
     }
@@ -40087,7 +40150,7 @@ function reconstructStatic(behaviourObject, staticProperties, environment) {
     });
 }
 exports.reconstructStatic = reconstructStatic;
-function deconstructBehaviour(object, currentLevel, accumVars, accumMethods, receiverId, environment, lastProp) {
+function deconstructBehaviour(object, currentLevel, accumVars, accumMethods, accumMethodAnnots, receiverId, environment, lastProp) {
     var properties = Reflect.ownKeys(object);
     var localAccumVars = [];
     for (var i in properties) {
@@ -40105,6 +40168,7 @@ function deconstructBehaviour(object, currentLevel, accumVars, accumMethods, rec
     localAccumVars.unshift(currentLevel);
     accumVars.push(localAccumVars);
     var localAccumMethods = [];
+    var localAccumMethAnnot = [];
     var proto = Reflect.getPrototypeOf(object);
     properties = Reflect.ownKeys(proto);
     var lastProto = properties.indexOf(lastProp) != -1;
@@ -40113,19 +40177,24 @@ function deconstructBehaviour(object, currentLevel, accumVars, accumMethods, rec
             var key = properties[i];
             var method = Reflect.get(proto, key);
             if (typeof method == 'function' && key != "constructor") {
+                if (utils_1.isAnnotatedMethod(method)) {
+                    localAccumMethAnnot.push([key, method["_ANNOT_CALL_"].toString(), method["_ANNOT_TAG_"]]);
+                }
                 localAccumMethods.push([key, method.toString()]);
             }
         }
         localAccumMethods.unshift(currentLevel + 1);
+        localAccumMethAnnot.unshift(currentLevel + 1);
         accumMethods.push(localAccumMethods);
-        return deconstructBehaviour(proto, currentLevel + 1, accumVars, accumMethods, receiverId, environment, lastProp);
+        accumMethodAnnots.push(localAccumMethAnnot);
+        return deconstructBehaviour(proto, currentLevel + 1, accumVars, accumMethods, accumMethodAnnots, receiverId, environment, lastProp);
     }
     else {
-        return [accumVars, accumMethods];
+        return [accumVars, accumMethods, accumMethodAnnots];
     }
 }
 exports.deconstructBehaviour = deconstructBehaviour;
-function reconstructBehaviour(baseObject, variables, methods, environment) {
+function reconstructBehaviour(baseObject, variables, methods, methodAnnotations, environment) {
     var amountOfProtos = methods.length;
     for (var i = 0; i < amountOfProtos; i++) {
         var copy = baseObject.__proto__;
@@ -40150,6 +40219,18 @@ function reconstructBehaviour(baseObject, variables, methods, environment) {
             var key = methodEntry[0];
             var functionSource = methodEntry[1];
             installIn[key] = constructMethod(functionSource);
+        });
+    });
+    methodAnnotations.forEach((levelAnnotations) => {
+        let installIn = getProtoForLevel(levelAnnotations[0], baseObject);
+        levelAnnotations.shift();
+        levelAnnotations.forEach((annot) => {
+            let methName = annot[0];
+            let annotF = annot[1];
+            let annotTag = annot[2];
+            let meth = installIn[methName];
+            meth["_ANNOT_CALL_"] = constructMethod(annotF);
+            meth["_ANNOT_TAG_"] = annotTag;
         });
     });
     return baseObject;
@@ -40260,53 +40341,60 @@ class ArrayContainer extends ValueContainer {
 }
 exports.ArrayContainer = ArrayContainer;
 class SpiderObjectDefinitionContainer extends ValueContainer {
-    constructor(definitions, scopes) {
+    constructor(definitions, scopes, methodAnnotations) {
         super(ValueContainer.spiderObjectDef);
         this.definitions = definitions;
         this.scopes = scopes;
+        this.methodAnnot = methodAnnotations;
     }
 }
 exports.SpiderObjectDefinitionContainer = SpiderObjectDefinitionContainer;
 class SpiderIsolateDefinitionContainer extends ValueContainer {
-    constructor(definitions, scopes) {
+    constructor(definitions, scopes, methodAnnotations) {
         super(ValueContainer.spiderIsolDef);
         this.definitions = definitions;
         this.scopes = scopes;
+        this.methodAnnot = methodAnnotations;
     }
 }
 exports.SpiderIsolateDefinitionContainer = SpiderIsolateDefinitionContainer;
 class SpiderIsolateContainer extends ValueContainer {
-    constructor(vars, methods, mirrorVars, mirrorMethods) {
+    constructor(vars, methods, methAnnots, mirrorVars, mirrorMethods, mirrorMethAnnots) {
         super(ValueContainer.isolateType);
         this.vars = vars;
         this.methods = methods;
+        this.methAnnots = methAnnots;
         this.mirrorVars = mirrorVars;
         this.mirrorMethods = mirrorMethods;
+        this.mirrorMethAnnots = mirrorMethAnnots;
     }
 }
 SpiderIsolateContainer.checkIsolateFuncKey = "_INSTANCEOF_ISOLATE_";
 exports.SpiderIsolateContainer = SpiderIsolateContainer;
 class SpiderObjectMirrorDefinitionContainer extends ValueContainer {
-    constructor(definitions, scopes) {
+    constructor(definitions, scopes, methodAnnotations) {
         super(ValueContainer.objectMirrorDef);
         this.definitions = definitions;
         this.scopes = scopes;
+        this.methodAnnot = methodAnnotations;
     }
 }
 exports.SpiderObjectMirrorDefinitionContainer = SpiderObjectMirrorDefinitionContainer;
 class SpiderIsolateMirrorDefinitionContainer extends ValueContainer {
-    constructor(definitions, scopes) {
+    constructor(definitions, scopes, methodAnnotations) {
         super(ValueContainer.isolMirrorDef);
         this.definitions = definitions;
         this.scopes = scopes;
+        this.methodAnnot = methodAnnotations;
     }
 }
 exports.SpiderIsolateMirrorDefinitionContainer = SpiderIsolateMirrorDefinitionContainer;
 class ClassDefinitionContainer extends ValueContainer {
-    constructor(definitions, scopes) {
+    constructor(definitions, scopes, methodAnnotations) {
         super(ValueContainer.classDefType);
         this.definitions = definitions;
         this.scopes = scopes;
+        this.methodAnnot = methodAnnotations;
     }
 }
 exports.ClassDefinitionContainer = ClassDefinitionContainer;
@@ -40578,9 +40666,9 @@ function serialise(value, receiverId, environment) {
             delete mirror.base;
             delete baseOb[MOP_1.SpiderObjectMirror.mirrorAccessKey];
             delete mirror.proxyBase;
-            let [vars, methods] = deconstructBehaviour(baseOb, 0, [], [], receiverId, environment, "toString");
-            let [mVars, mMethods] = deconstructBehaviour(mirror, 0, [], [], receiverId, environment, "toString");
-            let container = new SpiderIsolateContainer(JSON.stringify(vars), JSON.stringify(methods), JSON.stringify(mVars), JSON.stringify(mMethods));
+            let [vars, methods, methodAnnots] = deconstructBehaviour(baseOb, 0, [], [], [], receiverId, environment, "toString");
+            let [mVars, mMethods, mMethodAnnots] = deconstructBehaviour(mirror, 0, [], [], [], receiverId, environment, "toString");
+            let container = new SpiderIsolateContainer(JSON.stringify(vars), JSON.stringify(methods), JSON.stringify(methodAnnots), JSON.stringify(mVars), JSON.stringify(mMethods), JSON.stringify(mMethodAnnots));
             //Reset base object <=> mirror link
             mirror.base = baseOb;
             mirror.proxyBase = proxyBase;
@@ -40644,7 +40732,8 @@ function serialise(value, receiverId, environment) {
                 }
             });
             let serScopes = scopes.map((scope) => { return serialise(scope, receiverId, environment); });
-            return new SpiderObjectMirrorDefinitionContainer(chain.serialisedClass, serScopes);
+            let serAnnot = chain.methodAnnotations.map((annots) => { return serialise(annots, receiverId, environment); });
+            return new SpiderObjectMirrorDefinitionContainer(chain.serialisedClass, serScopes, serAnnot);
         }
         else if (isClass(value) && isIsolateMirrorClass(value)) {
             let chain = utils_1.getClassDefinitionChain(value);
@@ -40657,7 +40746,8 @@ function serialise(value, receiverId, environment) {
                 }
             });
             let serScopes = scopes.map((scope) => { return serialise(scope, receiverId, environment); });
-            return new SpiderIsolateMirrorDefinitionContainer(chain.serialisedClass, serScopes);
+            let serAnnot = chain.methodAnnotations.map((annots) => { return serialise(annots, receiverId, environment); });
+            return new SpiderIsolateMirrorDefinitionContainer(chain.serialisedClass, serScopes, serAnnot);
         }
         else if (isClass(value) && isSpiderObjectClass(value)) {
             let chain = utils_1.getClassDefinitionChain(value);
@@ -40670,7 +40760,8 @@ function serialise(value, receiverId, environment) {
                 }
             });
             let serScopes = scopes.map((scope) => { return serialise(scope, receiverId, environment); });
-            return new SpiderObjectDefinitionContainer(chain.serialisedClass, serScopes);
+            let serAnnot = chain.methodAnnotations.map((annots) => { return serialise(annots, receiverId, environment); });
+            return new SpiderObjectDefinitionContainer(chain.serialisedClass, serScopes, serAnnot);
         }
         else if (isClass(value) && isSpiderIsolateClass(value)) {
             let chain = utils_1.getClassDefinitionChain(value);
@@ -40685,7 +40776,8 @@ function serialise(value, receiverId, environment) {
             let serScopes = scopes.map((scope) => {
                 return serialise(scope, receiverId, environment);
             });
-            return new SpiderIsolateDefinitionContainer(chain.serialisedClass, serScopes);
+            let serAnnot = chain.methodAnnotations.map((annots) => { return serialise(annots, receiverId, environment); });
+            return new SpiderIsolateDefinitionContainer(chain.serialisedClass, serScopes, serAnnot);
         }
         else if (isClass(value) && isRepliqClass(value)) {
             //TODO might need to extract annotations in same way that is done for signals
@@ -40717,7 +40809,8 @@ function serialise(value, receiverId, environment) {
                 }
             });
             let serScopes = scopes.map((scope) => { return serialise(scope, receiverId, environment); });
-            return new ClassDefinitionContainer(chain.serialisedClass, serScopes);
+            let serAnnot = chain.methodAnnotations.map((annots) => { return serialise(annots, receiverId, environment); });
+            return new ClassDefinitionContainer(chain.serialisedClass, serScopes, serAnnot);
         }
         else {
             throw new Error("Serialisation of functions disallowed: " + value.toString());
@@ -40873,18 +40966,34 @@ function deserialise(value, environment) {
         let scopes = def.scopes.map((scope) => {
             return deserialise(scope, environment);
         });
-        return utils_1.reconstructClassDefinitionChain(def.definitions, scopes, require("./MOP").SpiderObject, require("./MOP").reCreateObjectClass);
+        let methAnnots = def.methodAnnot.map((annots) => {
+            return deserialise(annots, environment);
+        });
+        methAnnots.forEach((annots) => {
+            annots.forEach(([annotFunc, annotTag], methName) => {
+                annots.set(methName, [constructMethod(annotFunc), annotTag]);
+            });
+        });
+        return utils_1.reconstructClassDefinitionChain(def.definitions, scopes, methAnnots, require("./MOP").SpiderObject, require("./MOP").reCreateObjectClass);
     }
     function deSerialiseSpiderIsolateDefinition(def) {
         let scopes = def.scopes.map((scope) => {
             return deserialise(scope, environment);
         });
-        return utils_1.reconstructClassDefinitionChain(def.definitions, scopes, require("./MOP").SpiderIsolate, require("./MOP").reCreateIsolateClass);
+        let methAnnots = def.methodAnnot.map((annots) => {
+            return deserialise(annots, environment);
+        });
+        methAnnots.forEach((annots) => {
+            annots.forEach(([annotFunc, annotTag], methName) => {
+                annots.set(methName, [constructMethod(annotFunc), annotTag]);
+            });
+        });
+        return utils_1.reconstructClassDefinitionChain(def.definitions, scopes, methAnnots, require("./MOP").SpiderIsolate, require("./MOP").reCreateIsolateClass);
     }
     function deSerialiseSpiderIsolate(isolateContainer) {
-        var isolate = reconstructBehaviour({}, JSON.parse(isolateContainer.vars), JSON.parse(isolateContainer.methods), environment);
-        var isolClone = reconstructBehaviour({}, JSON.parse(isolateContainer.vars), JSON.parse(isolateContainer.methods), environment);
-        var mirror = reconstructBehaviour({}, JSON.parse(isolateContainer.mirrorVars), JSON.parse(isolateContainer.mirrorMethods), environment);
+        var isolate = reconstructBehaviour({}, JSON.parse(isolateContainer.vars), JSON.parse(isolateContainer.methods), JSON.parse(isolateContainer.methAnnots), environment);
+        var isolClone = reconstructBehaviour({}, JSON.parse(isolateContainer.vars), JSON.parse(isolateContainer.methods), JSON.parse(isolateContainer.methAnnots), environment);
+        var mirror = reconstructBehaviour({}, JSON.parse(isolateContainer.mirrorVars), JSON.parse(isolateContainer.mirrorMethods), JSON.parse(isolateContainer.mirrorMethAnnots), environment);
         isolate.instantiate(mirror, isolClone, MOP_1.wrapPrototypes, MOP_1.makeSpiderObjectProxy, MOP_1.simpleBind);
         return mirror.resolve(environment.actorMirror);
     }
@@ -40892,13 +41001,29 @@ function deserialise(value, environment) {
         let scopes = def.scopes.map((scope) => {
             return deserialise(scope, environment);
         });
-        return utils_1.reconstructClassDefinitionChain(def.definitions, scopes, require("./MOP").SpiderObjectMirror, require("./MOP").reCreateObjectMirrorClass);
+        let methAnnots = def.methodAnnot.map((annots) => {
+            return deserialise(annots, environment);
+        });
+        methAnnots.forEach((annots) => {
+            annots.forEach(([annotFunc, annotTag], methName) => {
+                annots.set(methName, [constructMethod(annotFunc), annotTag]);
+            });
+        });
+        return utils_1.reconstructClassDefinitionChain(def.definitions, scopes, methAnnots, require("./MOP").SpiderObjectMirror, require("./MOP").reCreateObjectMirrorClass);
     }
     function deSerialiseSpiderIsolateMirrorDefinition(def) {
         let scopes = def.scopes.map((scope) => {
             return deserialise(scope, environment);
         });
-        return utils_1.reconstructClassDefinitionChain(def.definitions, scopes, require("./MOP").SpiderIsolateMirror, require("./MOP").reCreateIsolateMirrorClass);
+        let methAnnots = def.methodAnnot.map((annots) => {
+            return deserialise(annots, environment);
+        });
+        methAnnots.forEach((annots) => {
+            annots.forEach(([annotFunc, annotTag], methName) => {
+                annots.set(methName, [constructMethod(annotFunc), annotTag]);
+            });
+        });
+        return utils_1.reconstructClassDefinitionChain(def.definitions, scopes, methAnnots, require("./MOP").SpiderIsolateMirror, require("./MOP").reCreateIsolateMirrorClass);
     }
     function deSerialiseClassDefinition(def) {
         function reCreateClass(classDefinition, scope, superClass) {
@@ -40927,7 +41052,15 @@ function deserialise(value, environment) {
         let scopes = def.scopes.map((scope) => {
             return deserialise(scope, environment);
         });
-        return utils_1.reconstructClassDefinitionChain(def.definitions, scopes, null, reCreateClass);
+        let methAnnots = def.methodAnnot.map((annots) => {
+            return deserialise(annots, environment);
+        });
+        methAnnots.forEach((annots) => {
+            annots.forEach(([annotFunc, annotTag], methName) => {
+                annots.set(methName, [constructMethod(annotFunc), annotTag]);
+            });
+        });
+        return utils_1.reconstructClassDefinitionChain(def.definitions, scopes, methAnnots, null, reCreateClass);
     }
     function deSerialiseMap(mapContainer) {
         let keys = JSON.parse(mapContainer.keys).map((key) => {
@@ -41026,17 +41159,19 @@ class ClientActor extends ActorBase {
         webWorker.addEventListener('message', (event) => {
             app.mainEnvironment.messageHandler.dispatch(event);
         });
-        var decon = serialisation_1.deconstructBehaviour(this, 0, [], [], actorId, app.mainEnvironment, "spawn");
+        var decon = serialisation_1.deconstructBehaviour(this, 0, [], [], [], actorId, app.mainEnvironment, "spawn");
         var actorVariables = decon[0];
         var actorMethods = decon[1];
+        var actorMethAnnots = decon[2];
         var staticProperties = serialisation_1.deconstructStatic(thisClass, actorId, [], app.mainEnvironment);
-        var deconActorMirror = serialisation_1.deconstructBehaviour(this.actorMirror, 0, [], [], actorId, app.mainEnvironment, "toString");
+        var deconActorMirror = serialisation_1.deconstructBehaviour(this.actorMirror, 0, [], [], [], actorId, app.mainEnvironment, "toString");
         var actorMirrorVariables = deconActorMirror[0];
         var actorMirrorMethods = deconActorMirror[1];
+        var actorMirrorMethAnnots = deconActorMirror[2];
         var mainChannel = new MessageChannel();
         //For performance reasons, all messages sent between web workers are stringified (see https://nolanlawson.com/2016/02/29/high-performance-web-worker-messages/)
         var newActorChannels = [mainChannel.port1].concat(channelMappings[1]);
-        var installMessage = new Message_1.InstallBehaviourMessage(app.mainEnvironment.thisRef, app.mainId, actorId, actorVariables, actorMethods, actorMirrorVariables, actorMirrorMethods, staticProperties, channelMappings[0]);
+        var installMessage = new Message_1.InstallBehaviourMessage(app.mainEnvironment.thisRef, app.mainId, actorId, actorVariables, actorMethods, actorMethAnnots, actorMirrorVariables, actorMirrorMethods, actorMirrorMethAnnots, staticProperties, channelMappings[0]);
         webWorker.postMessage(JSON.stringify(installMessage), newActorChannels);
         var channelManager = app.mainEnvironment.commMedium;
         channelManager.newConnection(actorId, mainChannel.port2);
@@ -41054,16 +41189,18 @@ class ServerActor extends ActorBase {
         var socketManager = app.mainEnvironment.commMedium;
         var fork = require('child_process').fork;
         var actorId = utils_1.generateId();
-        var decon = serialisation_1.deconstructBehaviour(this, 0, [], [], actorId, app.mainEnvironment, "spawn");
+        var decon = serialisation_1.deconstructBehaviour(this, 0, [], [], [], actorId, app.mainEnvironment, "spawn");
         var actorVariables = decon[0];
         var actorMethods = decon[1];
+        var actorMethAnnots = decon[2];
         var staticProperties = serialisation_1.deconstructStatic(thisClass, actorId, [], app.mainEnvironment);
         //Uncomment to debug (huray for webstorms)
         //var actor                       = fork(__dirname + '/actorProto.js',[app.mainIp,port,actorId,app.mainId,app.mainPort,JSON.stringify(actorVariables),JSON.stringify(actorMethods)],{execArgv: ['--debug-brk=8787']})
-        var deconActorMirror = serialisation_1.deconstructBehaviour(this.actorMirror, 0, [], [], actorId, app.mainEnvironment, "toString");
+        var deconActorMirror = serialisation_1.deconstructBehaviour(this.actorMirror, 0, [], [], [], actorId, app.mainEnvironment, "toString");
         var actorMirrorVariables = deconActorMirror[0];
         var actorMirrorMethods = deconActorMirror[1];
-        var actor = fork(__dirname + '/ActorProto.js', [false, app.mainIp, port, actorId, app.mainId, app.mainPort, JSON.stringify(actorVariables), JSON.stringify(actorMethods), JSON.stringify(staticProperties), JSON.stringify(actorMirrorVariables), JSON.stringify(actorMirrorMethods)]);
+        var actorMirrMethAnnots = deconActorMirror[2];
+        var actor = fork(__dirname + '/ActorProto.js', [false, app.mainIp, port, actorId, app.mainId, app.mainPort, JSON.stringify(actorVariables), JSON.stringify(actorMethods), JSON.stringify(staticProperties), JSON.stringify(actorMirrorVariables), JSON.stringify(actorMirrorMethods), JSON.stringify(actorMethAnnots), JSON.stringify(actorMirrMethAnnots)]);
         app.spawnedActors.push(actor);
         let [fieldNames, methodNames] = serialisation_1.getObjectNames(this, "spawn");
         var ref = new FarRef_1.ServerFarReference(ObjectPool_1.ObjectPool._BEH_OBJ_ID, fieldNames, methodNames, actorId, app.mainIp, port, app.mainEnvironment);
@@ -41168,14 +41305,12 @@ exports.SpiderActorMirror = MAP_2.SpiderActorMirror;
 var utils_2 = require("./utils");
 exports.bundleScope = utils_2.bundleScope;
 exports.LexScope = utils_2.LexScope;
+exports.makeMethodAnnotation = utils_2.makeMethodAnnotation;
 
 }).call(this,"/../node_modules/spiders.js/src")
 },{"./ActorEnvironment":168,"./ActorProto":169,"./ActorSTDLib":170,"./FarRef":173,"./MAP":174,"./MOP":175,"./Message":176,"./ObjectPool":177,"./serialisation":193,"./utils":195,"child_process":233,"webworkify":207}],195:[function(require,module,exports){
 (function (process){
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * Created by flo on 05/12/2016.
- */
 function isBrowser() {
     var isNode = false;
     if (typeof process === 'object') {
@@ -41273,13 +41408,29 @@ class ClassDefinitionChain {
     constructor() {
         this.serialisedClass = [];
         this.classScopes = [];
+        this.methodAnnotations = [];
     }
-    addClass(classDefinition, classScope) {
+    addClass(classDefinition, classScope, methodAnnotations) {
         this.serialisedClass.push(classDefinition);
         this.classScopes.push(classScope);
+        this.methodAnnotations.push(methodAnnotations);
     }
 }
 exports.ClassDefinitionChain = ClassDefinitionChain;
+function getMethodAnnotations(classDefinition) {
+    let ret = new Map();
+    let classProto = classDefinition.prototype;
+    Reflect.ownKeys(classProto).forEach((key) => {
+        if (key != "constructor") {
+            let meth = classProto[key];
+            if (isAnnotatedMethod(meth)) {
+                ret.set(key.toString(), [meth["_ANNOT_CALL_"].toString(), meth["_ANNOT_TAG_"]]);
+            }
+        }
+    });
+    return ret;
+}
+exports.getMethodAnnotations = getMethodAnnotations;
 function getClassDefinitionChain(classDefinition, ignoreLast = true) {
     let classDefChain = new ClassDefinitionChain();
     let loop = (currentClass) => {
@@ -41294,7 +41445,7 @@ function getClassDefinitionChain(classDefinition, ignoreLast = true) {
             if (hasLexScope(currentClass)) {
                 classScope = currentClass[LexScope._LEX_SCOPE_KEY_];
             }
-            classDefChain.addClass(getSerialiableClassDefinition(currentClass), classScope);
+            classDefChain.addClass(getSerialiableClassDefinition(currentClass), classScope, getMethodAnnotations(currentClass));
             loop(Reflect.getPrototypeOf(currentClass));
         }
     };
@@ -41302,14 +41453,20 @@ function getClassDefinitionChain(classDefinition, ignoreLast = true) {
     return classDefChain;
 }
 exports.getClassDefinitionChain = getClassDefinitionChain;
-function reconstructClassDefinitionChain(classes, scopes, topClass, recreate) {
+function reconstructClassDefinitionChain(classes, scopes, methodAnnotations, topClass, recreate) {
     let loop = (currentIndex, parentClass) => {
+        let classDef = recreate(classes[currentIndex], scopes[currentIndex], parentClass);
+        let classDefProto = classDef.prototype;
+        methodAnnotations[currentIndex].forEach(([annotFunc, annotTag], methName) => {
+            let method = classDefProto[methName];
+            method["_ANNOT_CALL_"] = annotFunc;
+            method["_ANNOT_TAG_"] = annotTag;
+        });
         if (currentIndex == 0) {
-            return recreate(classes[currentIndex], scopes[currentIndex], parentClass);
+            return classDef;
         }
         else {
-            let newParent = recreate(classes[currentIndex], scopes[currentIndex], parentClass);
-            return loop(--currentIndex, newParent);
+            return loop(--currentIndex, classDef);
         }
     };
     return loop(classes.length - 1, topClass);
@@ -41333,6 +41490,21 @@ function hasLexScope(classDefinition) {
     return Reflect.has(classDefinition, LexScope._LEX_SCOPE_KEY_);
 }
 exports.hasLexScope = hasLexScope;
+function isAnnotatedMethod(meth) {
+    return meth["_ANNOT_CALL_"];
+}
+exports.isAnnotatedMethod = isAnnotatedMethod;
+function makeMethodAnnotation(onCall, tag = "") {
+    return function (target, propertyKey, descriptor) {
+        let originalMethod = descriptor.value;
+        originalMethod["_ANNOT_CALL_"] = onCall;
+        originalMethod["_ANNOT_TAG_"] = tag;
+        return {
+            value: originalMethod
+        };
+    };
+}
+exports.makeMethodAnnotation = makeMethodAnnotation;
 
 }).call(this,require('_process'))
 },{"_process":450}],196:[function(require,module,exports){
@@ -46092,7 +46264,7 @@ class HomeScreen extends MyoScreen_1.MyoScreen {
         this.newListModal = new NewListModal_1.NewListModal((listName) => {
             let addToList = () => {
                 let newList = new APs_1.GroceryList(listName);
-                this.myLists.newListMUT(newList);
+                this.myLists.newList(newList);
             };
             if (this.myLists) {
                 addToList();
@@ -46102,7 +46274,7 @@ class HomeScreen extends MyoScreen_1.MyoScreen {
             }
         });
         this.newItemModal = new NewItemModal_1.NewItemModal((itemName) => {
-            this.currentList.addGroceryItemMUT(itemName);
+            this.currentList.addGroceryItem(itemName);
         });
         this.installListeners();
     }
@@ -46150,7 +46322,7 @@ class HomeScreen extends MyoScreen_1.MyoScreen {
                     li.append(p);
                     let inc = $("<a>");
                     inc.on('click', () => {
-                        list.incQuantityMUT(itemName);
+                        list.incQuantity(itemName);
                     });
                     inc.addClass("waves-effect waves-light btn brown darken-1");
                     let incIcon = $("<i class='material-icons'>add<i/>");
@@ -46158,7 +46330,7 @@ class HomeScreen extends MyoScreen_1.MyoScreen {
                     li.append(inc);
                     let dec = $("<a>");
                     dec.on('click', () => {
-                        list.decQuantityMUT(itemName);
+                        list.decQuantity(itemName);
                     });
                     dec.addClass("waves-effect waves-light btn red");
                     let decIcon = $("<i class='material-icons'>remove<i/>");
@@ -46228,10 +46400,10 @@ class HomeScreen2 extends MyoScreen_1.MyoScreen {
         this.newListModal = new NewListModal_1.NewListModal((listName) => {
             let addToList = () => {
                 if (this.online) {
-                    this.myLists.newListMUT(listName, APs_1.GroceryListC);
+                    this.myLists.newList(listName, APs_1.GroceryListC);
                 }
                 else {
-                    this.myLists.newListMUT(listName, APs_1.GroceryList);
+                    this.myLists.newList(listName, APs_1.GroceryList);
                 }
             };
             if (this.myLists) {
@@ -46242,7 +46414,7 @@ class HomeScreen2 extends MyoScreen_1.MyoScreen {
             }
         });
         this.newItemModal = new NewItemModal_1.NewItemModal((itemName) => {
-            this.currentList.addGroceryItemMUT(itemName);
+            this.currentList.addGroceryItem(itemName);
         });
         this.installListeners();
     }
@@ -46355,7 +46527,7 @@ class HomeScreen2 extends MyoScreen_1.MyoScreen {
                 li.append(p);
                 let inc = $("<a>");
                 inc.on('click', () => {
-                    list.incQuantityMUT(itemName);
+                    list.incQuantity(itemName);
                 });
                 inc.addClass("waves-effect waves-light btn brown darken-1");
                 let incIcon = $("<i class='material-icons'>add<i/>");
@@ -46363,7 +46535,7 @@ class HomeScreen2 extends MyoScreen_1.MyoScreen {
                 li.append(inc);
                 let dec = $("<a>");
                 dec.on('click', () => {
-                    list.decQuantityMUT(itemName);
+                    list.decQuantity(itemName);
                 });
                 dec.addClass("waves-effect waves-light btn red");
                 let decIcon = $("<i class='material-icons'>remove<i/>");
@@ -46398,7 +46570,7 @@ class HomeScreen2 extends MyoScreen_1.MyoScreen {
             li.append(p);
             let inc = $("<a>");
             inc.on('click', () => {
-                list.incQuantityMUT(itemName);
+                list.incQuantity(itemName);
             });
             inc.addClass("waves-effect waves-light btn brown darken-1");
             let incIcon = $("<i class='material-icons'>add<i/>");
@@ -46406,7 +46578,7 @@ class HomeScreen2 extends MyoScreen_1.MyoScreen {
             li.append(inc);
             let dec = $("<a>");
             dec.on('click', () => {
-                list.decQuantityMUT(itemName);
+                list.decQuantity(itemName);
             });
             dec.addClass("waves-effect waves-light btn red");
             let decIcon = $("<i class='material-icons'>remove<i/>");
@@ -46682,6 +46854,12 @@ class ServerComm {
 exports.ServerComm = ServerComm;
 
 },{"../data/PubSub":232}],231:[function(require,module,exports){
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const spiders_captain_1 = require("spiders.captain");
 class UserLists extends spiders_captain_1.Eventual {
@@ -46690,10 +46868,13 @@ class UserLists extends spiders_captain_1.Eventual {
         this.owner = ownerName;
         this.lists = [];
     }
-    newListMUT(list) {
+    newList(list) {
         this.lists.push(list);
     }
 }
+__decorate([
+    spiders_captain_1.mutating
+], UserLists.prototype, "newList", null);
 exports.UserLists = UserLists;
 class GroceryList extends spiders_captain_1.Eventual {
     constructor(name) {
@@ -46701,31 +46882,43 @@ class GroceryList extends spiders_captain_1.Eventual {
         this.listName = name;
         this.items = new Map();
     }
-    addGroceryItemMUT(itemName) {
+    addGroceryItem(itemName) {
         if (this.items.has(itemName)) {
-            this.incQuantityMUT(itemName);
+            this.incQuantity(itemName);
         }
         else {
             this.items.set(itemName, 1);
         }
     }
-    remGroceryItemMUT(itemName) {
+    remGroceryItem(itemName) {
         this.items.delete(itemName);
     }
-    incQuantityMUT(itemName) {
+    incQuantity(itemName) {
         let prevQuantity = this.items.get(itemName);
         this.items.set(itemName, prevQuantity + 1);
     }
-    decQuantityMUT(itemName) {
+    decQuantity(itemName) {
         let prevQuantity = this.items.get(itemName);
         if (prevQuantity - 1 <= 0) {
-            this.remGroceryItemMUT(itemName);
+            this.remGroceryItem(itemName);
         }
         else {
             this.items.set(itemName, prevQuantity - 1);
         }
     }
 }
+__decorate([
+    spiders_captain_1.mutating
+], GroceryList.prototype, "addGroceryItem", null);
+__decorate([
+    spiders_captain_1.mutating
+], GroceryList.prototype, "remGroceryItem", null);
+__decorate([
+    spiders_captain_1.mutating
+], GroceryList.prototype, "incQuantity", null);
+__decorate([
+    spiders_captain_1.mutating
+], GroceryList.prototype, "decQuantity", null);
 exports.GroceryList = GroceryList;
 class UserListsC extends spiders_captain_1.Consistent {
     constructor(ownerName) {
@@ -46733,7 +46926,7 @@ class UserListsC extends spiders_captain_1.Consistent {
         this.owner = ownerName;
         this.lists = [];
     }
-    newListMUT(listName, listConstructor) {
+    newList(listName, listConstructor) {
         this.lists.push(new listConstructor(listName));
     }
     merge(otherList) {
@@ -46772,6 +46965,9 @@ class UserListsC extends spiders_captain_1.Consistent {
         });
     }
 }
+__decorate([
+    spiders_captain_1.mutating
+], UserListsC.prototype, "newList", null);
 exports.UserListsC = UserListsC;
 class GroceryListC extends spiders_captain_1.Consistent {
     constructor(name) {
@@ -46779,25 +46975,25 @@ class GroceryListC extends spiders_captain_1.Consistent {
         this.listName = name;
         this.items = new Map();
     }
-    addGroceryItemMUT(itemName) {
+    addGroceryItem(itemName) {
         if (this.items.has(itemName)) {
-            this.incQuantityMUT(itemName);
+            this.incQuantity(itemName);
         }
         else {
             this.items.set(itemName, 1);
         }
     }
-    remGroceryItemMUT(itemName) {
+    remGroceryItem(itemName) {
         this.items.delete(itemName);
     }
-    incQuantityMUT(itemName) {
+    incQuantity(itemName) {
         let prevQuantity = this.items.get(itemName);
         this.items.set(itemName, prevQuantity + 1);
     }
-    decQuantityMUT(itemName) {
+    decQuantity(itemName) {
         let prevQuantity = this.items.get(itemName);
         if (prevQuantity - 1 <= 0) {
-            this.remGroceryItemMUT(itemName);
+            this.remGroceryItem(itemName);
         }
         else {
             this.items.set(itemName, prevQuantity - 1);
@@ -46807,6 +47003,18 @@ class GroceryListC extends spiders_captain_1.Consistent {
         this.items.set(itemName, quantity);
     }
 }
+__decorate([
+    spiders_captain_1.mutating
+], GroceryListC.prototype, "addGroceryItem", null);
+__decorate([
+    spiders_captain_1.mutating
+], GroceryListC.prototype, "remGroceryItem", null);
+__decorate([
+    spiders_captain_1.mutating
+], GroceryListC.prototype, "incQuantity", null);
+__decorate([
+    spiders_captain_1.mutating
+], GroceryListC.prototype, "decQuantity", null);
 exports.GroceryListC = GroceryListC;
 class BoughtList extends spiders_captain_1.Consistent {
     constructor() {

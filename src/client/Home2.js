@@ -19,10 +19,10 @@ class HomeScreen2 extends MyoScreen_1.MyoScreen {
         this.newListModal = new NewListModal_1.NewListModal((listName) => {
             let addToList = () => {
                 if (this.online) {
-                    this.myLists.newListMUT(listName, APs_1.GroceryListC);
+                    this.myLists.newList(listName, APs_1.GroceryListC);
                 }
                 else {
-                    this.myLists.newListMUT(listName, APs_1.GroceryList);
+                    this.myLists.newList(listName, APs_1.GroceryList);
                 }
             };
             if (this.myLists) {
@@ -33,7 +33,7 @@ class HomeScreen2 extends MyoScreen_1.MyoScreen {
             }
         });
         this.newItemModal = new NewItemModal_1.NewItemModal((itemName) => {
-            this.currentList.addGroceryItemMUT(itemName);
+            this.currentList.addGroceryItem(itemName);
         });
         this.installListeners();
     }
@@ -146,7 +146,7 @@ class HomeScreen2 extends MyoScreen_1.MyoScreen {
                 li.append(p);
                 let inc = $("<a>");
                 inc.on('click', () => {
-                    list.incQuantityMUT(itemName);
+                    list.incQuantity(itemName);
                 });
                 inc.addClass("waves-effect waves-light btn brown darken-1");
                 let incIcon = $("<i class='material-icons'>add<i/>");
@@ -154,7 +154,7 @@ class HomeScreen2 extends MyoScreen_1.MyoScreen {
                 li.append(inc);
                 let dec = $("<a>");
                 dec.on('click', () => {
-                    list.decQuantityMUT(itemName);
+                    list.decQuantity(itemName);
                 });
                 dec.addClass("waves-effect waves-light btn red");
                 let decIcon = $("<i class='material-icons'>remove<i/>");
@@ -189,7 +189,7 @@ class HomeScreen2 extends MyoScreen_1.MyoScreen {
             li.append(p);
             let inc = $("<a>");
             inc.on('click', () => {
-                list.incQuantityMUT(itemName);
+                list.incQuantity(itemName);
             });
             inc.addClass("waves-effect waves-light btn brown darken-1");
             let incIcon = $("<i class='material-icons'>add<i/>");
@@ -197,7 +197,7 @@ class HomeScreen2 extends MyoScreen_1.MyoScreen {
             li.append(inc);
             let dec = $("<a>");
             dec.on('click', () => {
-                list.decQuantityMUT(itemName);
+                list.decQuantity(itemName);
             });
             dec.addClass("waves-effect waves-light btn red");
             let decIcon = $("<i class='material-icons'>remove<i/>");

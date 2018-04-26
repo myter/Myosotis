@@ -31,7 +31,7 @@ export class HomeScreen extends MyoScreen{
         this.newListModal           = new NewListModal((listName)=>{
             let addToList = ()=>{
                 let newList = new GroceryList(listName)
-                this.myLists.newListMUT(newList)
+                this.myLists.newList(newList)
             }
             if(this.myLists){
                 addToList()
@@ -41,7 +41,7 @@ export class HomeScreen extends MyoScreen{
             }
         })
         this.newItemModal           = new NewItemModal((itemName)=>{
-            this.currentList.addGroceryItemMUT(itemName)
+            this.currentList.addGroceryItem(itemName)
         })
         this.installListeners()
     }
@@ -93,7 +93,7 @@ export class HomeScreen extends MyoScreen{
                     li.append(p)
                     let inc = $("<a>")
                     inc.on('click',()=>{
-                        list.incQuantityMUT(itemName)
+                        list.incQuantity(itemName)
                     })
                     inc.addClass("waves-effect waves-light btn brown darken-1")
                     let incIcon = $("<i class='material-icons'>add<i/>")
@@ -101,7 +101,7 @@ export class HomeScreen extends MyoScreen{
                     li.append(inc)
                     let dec = $("<a>")
                     dec.on('click',()=>{
-                        list.decQuantityMUT(itemName)
+                        list.decQuantity(itemName)
                     })
                     dec.addClass("waves-effect waves-light btn red")
                     let decIcon = $("<i class='material-icons'>remove<i/>")
